@@ -1,11 +1,9 @@
 /* Banner Container */
 .banner-container {
     width: 100%;
-    max-width: 1335px;
     aspect-ratio: 1335/342;
     position: relative;
     overflow: hidden;
-    border-radius: 8px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     margin: 20px auto;
 }
