@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import splash1 from "./assets/splash-image-1.png";
 import totumSearch from './assets/totum-search.png'
+import FeaturedOffers from './OffersSection.jsx'
 import './landingPage.css'
 
 function LandingPage() {
@@ -100,6 +101,9 @@ function LandingPage() {
         </div>
     </div>
 </div>
+
+          {/* featured offer section*/}
+          <FeaturedOffers/>
     </div>
   );
 }
