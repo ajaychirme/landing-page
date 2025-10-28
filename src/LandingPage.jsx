@@ -3,6 +3,9 @@ import splash1 from "./assets/splash-image-1.png";
 import totumSearch from "./assets/totum-search.png";
 import FeaturedOffers from "./OffersSection.jsx";
 import WhyTotum from "./WhyTotum.jsx";
+import WhoCanJoin from "./WhoCanJoin.jsx";
+import FAQSection from "./FAQSection.jsx";
+import PlanSelector from "./PlanSelector.jsx";
 import "./landingPage.css";
 
 function LandingPage() {
@@ -111,8 +114,11 @@ function LandingPage() {
       </div>
 
       {/* featured offer section*/}
+      <WhoCanJoin/>
       <FeaturedOffers />
+      <PlanSelector/>
       <WhyTotum />
+      <FAQSection/>
     </div>
 
     
