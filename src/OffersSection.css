@@ -158,19 +158,23 @@
     padding: 20px;
 }
 
+/* Consistent title styling for both sections */
 .card-title,
 .offer-text {
-    font-size: 1.25em;
+    font-size: 1.1em;
     font-weight: 700;
     color: #1a1a1a;
     margin-bottom: 8px;
+    line-height: 1.4;
 }
 
+/* Consistent subtitle styling for both sections */
 .card-subtitle,
 .offer-subtitle {
     font-size: 0.95em;
     color: #666;
     margin-bottom: 12px;
+    font-weight: 400;
 }
 
 .card-tags,
@@ -193,16 +197,18 @@
     content: '';
 }
 
-/* Featured Header */
+/* Featured Header - Consistent styling for both sections */
 .featured-header {
     background: #1a1a1a;
     color: white;
-    padding: 10px 20px;
-    font-size: 0.95em;
+    padding: 12px 24px;
+    font-size: 1em;
     font-weight: 700;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     display: inline-block;
     margin-bottom: 25px;
+    text-transform: uppercase;
+    border-radius: 4px;
 }
 
 /* Navigation Arrows */
@@ -216,7 +222,6 @@
     border: none;
     border-radius: 50%;
     color: white;
-    font-size: 2em;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -224,13 +229,28 @@
     z-index: 10;
     box-shadow: 0 4px 16px rgba(201, 63, 158, 0.4);
     transition: all 0.3s ease;
-    font-weight: 300;
+    padding: 0;
+}
+
+.nav-arrow svg {
+    width: 24px;
+    height: 24px;
+    stroke: white;
+    transition: transform 0.3s ease;
 }
 
 .nav-arrow:hover {
-    transform: translateY(-50%) scale(1.05);
+    transform: translateY(-50%) scale(1.08);
     background: #ff4d8f;
     box-shadow: 0 6px 20px rgba(201, 63, 158, 0.5);
+}
+
+.nav-arrow:hover svg {
+    transform: scale(1.1);
+}
+
+.nav-arrow:active {
+    transform: translateY(-50%) scale(1.02);
 }
 
 .nav-arrow.left {
@@ -259,6 +279,12 @@
     .section-header h2 {
         font-size: 1.5em;
     }
+
+    .featured-header {
+        font-size: 0.9em;
+        padding: 10px 20px;
+        letter-spacing: 1.5px;
+    }
     
     .discount-card,
     .offer-card {
@@ -266,9 +292,13 @@
     }
 
     .nav-arrow {
-        width: 40px;
-        height: 40px;
-        font-size: 1.5em;
+        width: 45px;
+        height: 45px;
+    }
+
+    .nav-arrow svg {
+        width: 20px;
+        height: 20px;
     }
 
     .nav-arrow.left {
@@ -282,5 +312,10 @@
     .card-title,
     .offer-text {
         font-size: 1.1em;
+    }
+
+    .card-subtitle,
+    .offer-subtitle {
+        font-size: 0.9em;
     }
 }

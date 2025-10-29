@@ -238,45 +238,49 @@ const PlanSelector = () => {
         {/* Popular Offers Section */}
         <div className={`popular-offers-section theme-${currentTheme}`}>
           <div className="popular-offers-header">
-            <h3>Popular Offers for {currentTitle.toUpperCase()}</h3>
+            <h3>Popular Offers for {currentTitle}</h3>
             <a href="#" className={`view-all-link theme-${currentTheme}`}>View All →</a>
           </div>
 
           <div className="carousel-wrapper">
-            <button 
-              className={`nav-arrow left theme-${currentTheme}`}
-              onClick={scrollLeft}
-              aria-label="Scroll left"
-            >
-              ‹
-            </button>
-            <div className="carousel" ref={carouselRef}>
-              {currentOffers.map((offer) => (
-                <div key={offer.id} className={`discount-card theme-${currentTheme}`}>
-                  <div className="card-image" style={{ background: offer.gradient }}>
-                    <img src={offer.image} alt={offer.brand} />
-                    <div className={`brand-logo theme-${currentTheme}`}>{offer.logo}</div>
-                  </div>
-                  <div className="card-content">
-                    <h4 className="card-title">{offer.title}</h4>
-                    <p className="card-subtitle">{offer.brand}</p>
-                    <div className="card-tags">
-                      {offer.tags.map((tag, index) => (
-                        <span key={index}>{tag}</span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <button 
-              className={`nav-arrow right theme-${currentTheme}`}
-              onClick={scrollRight}
-              aria-label="Scroll right"
-            >
-              ›
-            </button>
+  <button 
+    className={`nav-arrow left theme-${currentTheme}`}
+    onClick={scrollLeft}
+    aria-label="Scroll left"
+  >
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="15 18 9 12 15 6"></polyline>
+    </svg>
+  </button>
+  <div className="carousel" ref={carouselRef}>
+    {currentOffers.map((offer) => (
+      <div key={offer.id} className={`discount-card theme-${currentTheme}`}>
+        <div className="card-image" style={{ background: offer.gradient }}>
+          <img src={offer.image} alt={offer.brand} />
+          <div className={`brand-logo theme-${currentTheme}`}>{offer.logo}</div>
+        </div>
+        <div className="card-content">
+          <h4 className="card-title">{offer.title}</h4>
+          <p className="card-subtitle">{offer.brand}</p>
+          <div className="card-tags">
+            {offer.tags.map((tag, index) => (
+              <span key={index}>{tag}</span>
+            ))}
           </div>
+        </div>
+      </div>
+    ))}
+  </div>
+  <button 
+    className={`nav-arrow right theme-${currentTheme}`}
+    onClick={scrollRight}
+    aria-label="Scroll right"
+  >
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </button>
+</div>
         </div>
       </div>
     </div>

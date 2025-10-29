@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef, useState, useEffect} from 'react';
 import './WhyTotum.css';
 
 const WhyTotum = () => {
@@ -21,12 +21,99 @@ const WhyTotum = () => {
     }
   ];
 
+  const [isVisible, setIsVisible] = useState(false);
+  const [counters, setCounters] = useState([0, 0, 0, 0]);
+  const statsRef = useRef(null);
+
   const stats = [
-    { number: '£2.4M', label: 'Saved This Month' },
-    { number: '4,000+', label: 'Retailers' },
-    { number: '£243', label: 'Avg. Cashback/Year' },
-    { number: '1M+', label: 'Active Members' }
+    { number: '£2.4M', label: 'Saved This Month', value: 2.4, suffix: 'M', prefix: '£' },
+    { number: '4,000+', label: 'Retailers', value: 4000, suffix: '+', prefix: '' },
+    { number: '£243', label: 'Avg. Cashback/Year', value: 243, suffix: '', prefix: '£' },
+    { number: '1M+', label: 'Active Members', value: 1, suffix: 'M+', prefix: '' }
   ];
+
+  // Intersection Observer to detect when stats section is visible
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !isVisible) {
+            setIsVisible(true);
+          }
+        });
+      },
+      {
+        threshold: 0.5, // Trigger when 50% of the section is visible
+        rootMargin: '0px'
+      }
+    );
+
+    const currentRef = statsRef.current;
+    
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, []); // Remove isVisible from dependencies
+
+  // Animate counters when visible
+  useEffect(() => {
+    if (!isVisible) return;
+
+    const duration = 2000; // 2 seconds
+    const steps = 60;
+    const stepDuration = duration / steps;
+    const timers = [];
+
+    stats.forEach((stat, index) => {
+      let currentStep = 0;
+      const increment = stat.value / steps;
+
+      const timer = setInterval(() => {
+        currentStep++;
+        const newValue = increment * currentStep;
+
+        setCounters((prev) => {
+          const newCounters = [...prev];
+          newCounters[index] = Math.min(newValue, stat.value);
+          return newCounters;
+        });
+
+        if (currentStep >= steps) {
+          clearInterval(timer);
+        }
+      }, stepDuration);
+
+      timers.push(timer);
+    });
+
+    // Cleanup function
+    return () => {
+      timers.forEach(timer => clearInterval(timer));
+    };
+  }, [isVisible]); // Only depend on isVisible
+
+  const formatNumber = (value, stat) => {
+    const { prefix, suffix } = stat;
+    
+    // Format the number based on suffix type
+    let formattedValue = '';
+    
+    if (suffix === 'M' || suffix === 'M+') {
+      formattedValue = value.toFixed(1);
+    } else if (suffix === '+') {
+      formattedValue = Math.floor(value).toLocaleString();
+    } else {
+      formattedValue = Math.floor(value).toLocaleString();
+    }
+
+    return `${prefix}${formattedValue}${suffix}`;
+  };
 
   const testimonials = [
     {
@@ -89,23 +176,14 @@ const WhyTotum = () => {
         </p>
       </div>
 
-      {/* Benefits Grid */}
-      {/* <div className="benefits-grid">
-        {benefits.map((benefit, index) => (
-          <div key={index} className="benefit-card">
-            <div className="benefit-icon">{benefit.icon}</div>
-            <h3>{benefit.title}</h3>
-            <p>{benefit.description}</p>
-          </div>
-        ))}
-      </div> */}
-
       {/* Stats Section */}
-      <div className="stats-section">
+      <div className="stats-section" ref={statsRef}>
         <div className="stats-grid">
           {stats.map((stat, index) => (
             <div key={index} className="stat-item">
-              <span className="stat-number">{stat.number}</span>
+              <span className="stat-number">
+                {isVisible ? formatNumber(counters[index], stat) : `${stat.prefix}0${stat.suffix}`}
+              </span>
               <span className="stat-label">{stat.label}</span>
             </div>
           ))}
@@ -113,11 +191,6 @@ const WhyTotum = () => {
       </div>
 
       {/* Testimonials Section - 4 Column Layout */}
-      {/* <div className="testimonials-header">
-        <h2>What Our Members Say</h2>
-        <p>Real savings from real people</p>
-      </div> */}
-
       <div className="testimonials-grid">
         {testimonials.map((testimonial, index) => (
           <div key={index} className="testimonial-card">
@@ -133,28 +206,6 @@ const WhyTotum = () => {
           </div>
         ))}
       </div>
-
-      {/* Alternative: 3 Column Testimonials Layout */}
-      {/* <div style={{ marginTop: '80px' }}>
-        <div className="testimonials-header">
-          <h2>What Our Members Say</h2>
-          <p>Real savings from real people</p>
-        </div>
-
-        <div className="testimonials-grid-alt">
-          {testimonials3Col.map((testimonial, index) => (
-            <div key={index} className="testimonial-card">
-              <p className="testimonial-text">{testimonial.text}</p>
-              <div className="testimonial-author">
-                <div className="author-info">
-                  <div className="author-name">{testimonial.author}</div>
-                  <div className="author-role">{testimonial.role}</div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div> */}
     </div>
   );
 };

@@ -121,8 +121,8 @@ const OffersSection = () => {
 
   return (
     <div className="offers-container">
-            {/* Featured Offers Section */}
-            <section className="offers-section">
+      {/* Featured Offers Section */}
+      <section className="offers-section">
         <div className="featured-header">FEATURED OFFERS</div>
         
         <div className="featured-carousel-wrapper">
@@ -131,7 +131,9 @@ const OffersSection = () => {
             onClick={() => scrollLeft(featuredCarouselRef)}
             aria-label="Scroll left"
           >
-            ‹
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
           </button>
           <div className="featured-carousel" ref={featuredCarouselRef}>
             {featuredOffers.map((offer) => (
@@ -157,15 +159,18 @@ const OffersSection = () => {
             onClick={() => scrollRight(featuredCarouselRef)}
             aria-label="Scroll right"
           >
-            ›
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
           </button>
         </div>
       </section>
+
       {/* Popular Student Discounts Section */}
       <section className="offers-section">
         <div className="section-header">
           <div>
-          <div className="featured-header">Highlights</div>
+            <div className="featured-header">HIGHLIGHTS</div>
           </div>
           <a href="#" className="view-more">View More →</a>
         </div>
@@ -176,7 +181,9 @@ const OffersSection = () => {
             onClick={() => scrollLeft(popularCarouselRef)}
             aria-label="Scroll left"
           >
-            ‹
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
           </button>
           <div className="carousel" ref={popularCarouselRef}>
             {popularDiscounts.map((discount) => (
@@ -202,7 +209,9 @@ const OffersSection = () => {
             onClick={() => scrollRight(popularCarouselRef)}
             aria-label="Scroll right"
           >
-            ›
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
           </button>
         </div>
       </section>
