@@ -1,0 +1,564 @@
+/* Modern Promo Banner Styles */
+.promo-banner-modern {
+  width: 100%;
+  height: 450px;
+  position: relative;
+  overflow: hidden;
+  background: #0a0a0a;
+}
+
+.promo-slides-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* Slide Animations */
+.promo-slide-modern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transform: translateX(100%) scale(0.95);
+  transition: all 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+  z-index: 1;
+}
+
+.promo-slide-modern.active {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+  z-index: 2;
+}
+
+.promo-slide-modern.exit-left {
+  opacity: 0;
+  transform: translateX(-100%) scale(0.95);
+  z-index: 1;
+}
+
+.promo-slide-modern.exit-right {
+  opacity: 0;
+  transform: translateX(100%) scale(0.95);
+  z-index: 1;
+}
+
+/* Background Image with Parallax Effect */
+.promo-slide-bg {
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  background-size: cover;
+  background-position: center;
+  filter: blur(8px) brightness(0.4);
+  opacity: 0.3;
+  transition: transform 0.8s ease-out;
+}
+
+.promo-slide-modern.active .promo-slide-bg {
+  transform: scale(1.05);
+}
+
+/* Gradient Overlay */
+.promo-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+  z-index: 1;
+}
+
+/* Content Wrapper */
+.promo-content-wrapper {
+  position: relative;
+  height: 100%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 60px;
+}
+
+.promo-content-modern {
+  max-width: 1400px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.promo-final {
+    margin-left: 5em;
+}
+
+/* Text Content with Staggered Animation */
+.promo-text-content {
+  animation: slideInLeft 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.promo-slide-modern.active .promo-text-content {
+  animation: slideInLeft 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Emoji Badge */
+.promo-title-modern {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: white;
+  margin-bottom: 20px;
+  line-height: 1.1;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  letter-spacing: -0.5px;
+  animation: fadeInUp 0.8s ease 0.2s both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Description */
+.promo-description-modern {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 28px;
+  max-width: 600px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  animation: fadeInUp 0.8s ease 0.4s both;
+}
+
+/* Button with Magnetic Effect */
+.promo-button-modern {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 40px;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 0.8s ease 0.6s both;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.promo-button-modern::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.1);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.promo-button-modern:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.promo-button-modern:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+}
+
+.promo-button-modern:active {
+  transform: translateY(-2px) scale(1.02);
+}
+
+.button-arrow {
+  transition: transform 0.3s ease;
+}
+
+.promo-button-modern:hover .button-arrow {
+  transform: translateX(5px);
+}
+
+/* Image Content */
+.promo-image-content {
+  animation: slideInRight 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(60px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+.promo-final-frame {
+    margin-right: 5em;
+}
+
+.promo-image-frame {
+  position: relative;
+  width: 100%;
+  height: 350px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  transform-style: preserve-3d;
+  transition: transform 0.4s ease;
+}
+
+.promo-image-frame:hover {
+  transform: translateY(-5px);
+}
+
+.promo-featured-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  transition: transform 0.6s ease;
+}
+
+.promo-image-frame:hover .promo-featured-image {
+  transform: scale(1.05);
+}
+
+/* Image Glow Effect */
+.image-glow {
+  position: absolute;
+  bottom: -30%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 60%;
+  border-radius: 50%;
+  opacity: 0.4;
+  filter: blur(60px);
+  z-index: -1;
+  animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateX(-50%) scale(1.1);
+  }
+}
+
+/* Navigation Arrows */
+.promo-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 64px;
+  height: 64px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  opacity: 0;
+  animation: fadeIn 0.5s ease 1s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.promo-arrow:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-50%) scale(1.15);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.promo-arrow:active {
+  transform: translateY(-50%) scale(1.05);
+}
+
+.promo-arrow-left {
+  left: 40px;
+}
+
+.promo-arrow-right {
+  right: 40px;
+}
+
+/* Dots Indicator */
+.promo-dots-container {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 16px;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(20px);
+  padding: 12px 24px;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.promo-dot-modern {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  border: none;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+}
+
+.promo-dot-modern::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: transparent;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.promo-dot-modern:hover {
+  background: rgba(255, 255, 255, 0.7);
+  transform: scale(1.3);
+}
+
+.promo-dot-modern.active {
+  background: white;
+  width: 40px;
+  border-radius: 10px;
+}
+
+.promo-dot-modern.active::after {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Progress Bar */
+.promo-progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 11;
+}
+
+.promo-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #ff4d8f, #c93f9e, #db00ff);
+  width: 0;
+  animation: progressAnimation 5s linear infinite;
+}
+
+@keyframes progressAnimation {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .promo-content-wrapper {
+    padding: 0 50px;
+  }
+  
+  .promo-content-modern {
+    gap: 40px;
+  }
+  
+  .promo-title-modern {
+    font-size: 2.2rem;
+  }
+  
+  .promo-image-frame {
+    height: 300px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .promo-banner-modern {
+    height: 550px;
+  }
+  
+  .promo-content-modern {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center;
+  }
+  
+  .promo-text-content,
+  .promo-image-content {
+    animation: fadeInUp 0.8s ease both;
+  }
+  
+  .promo-description-modern {
+    max-width: 100%;
+  }
+  
+  .promo-title-modern {
+    font-size: 2rem;
+  }
+  
+  .promo-description-modern {
+    font-size: 1rem;
+  }
+  
+  .promo-image-frame {
+    height: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .promo-banner-modern {
+    height: 580px;
+  }
+  
+  .promo-content-wrapper {
+    padding: 0 30px;
+  }
+  
+  .promo-title-modern {
+    font-size: 1.75rem;
+  }
+  
+  .promo-description-modern {
+    font-size: 0.95rem;
+  }
+  
+  .promo-button-modern {
+    width: 100%;
+    justify-content: center;
+    padding: 16px 36px;
+    font-size: 0.95rem;
+  }
+  
+  .promo-arrow {
+    width: 56px;
+    height: 56px;
+  }
+  
+  .promo-arrow-left {
+    left: 20px;
+  }
+  
+  .promo-arrow-right {
+    right: 20px;
+  }
+  
+  .promo-dots-container {
+    bottom: 30px;
+    gap: 12px;
+    padding: 10px 20px;
+  }
+  
+  .promo-image-frame {
+    height: 220px;
+  }
+}
+
+@media (max-width: 480px) {
+  .promo-banner-modern {
+    height: 620px;
+  }
+  
+  .promo-content-wrapper {
+    padding: 0 20px;
+  }
+  
+  .promo-title-modern {
+    font-size: 1.5rem;
+  }
+  
+  .promo-description-modern {
+    font-size: 0.9rem;
+    margin-bottom: 24px;
+  }
+  
+  .promo-button-modern {
+    padding: 14px 32px;
+  }
+  
+  .promo-arrow {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .promo-arrow-left {
+    left: 15px;
+  }
+  
+  .promo-arrow-right {
+    right: 15px;
+  }
+  
+  .promo-dots-container {
+    bottom: 20px;
+  }
+  
+  .promo-dot-modern {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .promo-dot-modern.active {
+    width: 32px;
+  }
+  
+  .promo-image-frame {
+    height: 200px;
+  }
+}

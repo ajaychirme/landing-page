@@ -3,6 +3,8 @@ import splash1 from "./assets/splash-image-1.png";
 import totumSearch from "./assets/totum-search.png";
 import FeaturedOffers from "./OffersSection.jsx";
 import WhyTotum from "./WhyTotum.jsx";
+import PromoBanner from "./PromoBanner.jsx";
+import PromoBanner1 from "./PromoBanner1.jsx";
 import WhoCanJoin from "./WhoCanJoin.jsx";
 import FAQSection from "./FAQSection.jsx";
 import PlanSelector from "./PlanSelector.jsx";
@@ -18,20 +20,19 @@ function LandingPage() {
 
   const [index, setIndex] = useState(0);
   const [fade, setFade] = useState(true);
+  const [showPromo1, setShowPromo1] = useState(false); // 🔥 state for toggling banners
 
   useEffect(() => {
-    const fadeDuration = 1000; // fade in/out time (ms)
-    const visibleDuration = 2000; // visible time (ms)
+    const fadeDuration = 1000;
+    const visibleDuration = 2000;
 
     const interval = setInterval(() => {
-      // fade out first
       setFade(false);
-      // after fade-out, switch text and fade in
       setTimeout(() => {
         setIndex((prev) => (prev + 1) % spanText.length);
         setFade(true);
       }, fadeDuration);
-    }, visibleDuration + fadeDuration * 2); // total cycle time
+    }, visibleDuration + fadeDuration * 2);
 
     return () => clearInterval(interval);
   }, [spanText.length]);
@@ -40,89 +41,121 @@ function LandingPage() {
     <div>
       {/* Ticker Bar */}
       <div
+        className="sticky-div"
         style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          color: "#fff",
-          background: "linear-gradient(to right, #6a1a8c, #db00ff, #ff007f)",
-          width: "100%",
-          height: "40px",
-          cursor: "pointer",
-          fontWeight: "700",
-          fontSize: "18px",
-          fontStyle: "italic",
-          position: "relative",
-          overflow: "hidden",
+          position: "sticky",
+          top: "0",
+          zIndex: 100,
+          backgroundColor: "white",
+          paddingBottom: "1rem",
         }}
       >
-        <span
+        <div
           style={{
-            position: "absolute",
-            opacity: fade ? 1 : 0,
-            transition: "opacity 1s ease-in-out", // smoother fade
-            whiteSpace: "nowrap",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            color: "#fff",
+            background: "linear-gradient(to right, #6a1a8c, #db00ff, #ff007f)",
+            width: "100%",
+            height: "40px",
+            cursor: "pointer",
+            fontWeight: "700",
+            fontSize: "18px",
+            fontStyle: "italic",
+            position: "relative",
+            overflow: "hidden",
           }}
         >
-          {spanText[index]}
-        </span>
+          <span
+            style={{
+              position: "absolute",
+              opacity: fade ? 1 : 0,
+              transition: "opacity 1s ease-in-out",
+              whiteSpace: "nowrap",
+            }}
+          >
+            {spanText[index]}
+          </span>
+        </div>
+
+        {/* Search Box */}
+        <div>
+          <img src={totumSearch} alt="totum-search" />
+        </div>
       </div>
 
-      {/* Search Box */}
-      <div>
-        <img src={totumSearch} alt="totum-search" />
-      </div>
       {/* Splash Image */}
-      <div class="banner-container">
-        <div class="banner">
-          <div class="decoration planet">
+      <div className="banner-container">
+        <div className="banner">
+          <div className="decoration planet">
             <svg viewBox="0 0 80 80" width="80" height="80">
-              <circle cx="40" cy="40" r="25" stroke-width="3" />
-              <ellipse cx="40" cy="40" rx="45" ry="12" stroke-width="3" />
+              <circle cx="40" cy="40" r="25" strokeWidth="3" />
+              <ellipse cx="40" cy="40" rx="45" ry="12" strokeWidth="3" />
             </svg>
           </div>
 
-          <div class="decoration star">
+          <div className="decoration star">
             <svg viewBox="0 0 60 60" width="60" height="60">
               <path
                 d="M30 5 L35 25 L55 30 L35 35 L30 55 L25 35 L5 30 L25 25 Z"
-                stroke-width="2.5"
+                strokeWidth="2.5"
               />
             </svg>
           </div>
 
-          <div class="decoration circle-small"></div>
-          <div class="decoration circle-large"></div>
-          <div class="decoration asterisk">✱</div>
-          <div class="decoration circle-right"></div>
-          <div class="decoration blob-bottom"></div>
-          <div class="decoration blob-left"></div>
+          <div className="decoration circle-small"></div>
+          <div className="decoration circle-large"></div>
+          <div className="decoration asterisk">✱</div>
+          <div className="decoration circle-right"></div>
+          <div className="decoration blob-bottom"></div>
+          <div className="decoration blob-left"></div>
 
-          <div class="content">
+          <div className="content">
             <h1>The UK's No.1 Discount Card for All</h1>
-            <p class="subtitle">
+            <p className="subtitle">
               For Students, Professionals, Apprentices & More
             </p>
-            <p class="description">
+            <p className="description">
               TOTUM means 'all' - because everyone deserves access to great
               savings. Trade union members, chartered professionals, NHS staff
               and more anywhere else.
             </p>
-            <button class="cta-button">Start Saving Now</button>
+            <button className="cta-button">Start Saving Now</button>
+                 {/* 🔁 Toggle Button for Demo */}
+      <div style={{ textAlign: "center", margin: "20px 0" }}>
+        <button
+          onClick={() => setShowPromo1((prev) => !prev)}
+          style={{
+            background:
+              "linear-gradient(to right, #c93f9e, #ff4d8f)",
+            color: "#fff",
+            padding: "10px 20px",
+            border: "none",
+            borderRadius: "8px",
+            cursor: "pointer",
+            fontWeight: "600",
+          }}
+        >
+          {showPromo1 ? "Show PromoBanner" : "Show PromoBanner1"}
+        </button>
+      </div>
           </div>
         </div>
       </div>
 
-      {/* featured offer section*/}
-      <WhoCanJoin/>
+ 
+
+      {/* 🔥 Conditionally Render the Promo Banner */}
+      {showPromo1 ? <PromoBanner1 /> : <PromoBanner />}
+
+      {/* Other Sections */}
+      <WhoCanJoin />
       <FeaturedOffers />
-      <PlanSelector/>
+      <PlanSelector />
       <WhyTotum />
-      <FAQSection/>
+      <FAQSection />
     </div>
-
-    
-
   );
 }
 
