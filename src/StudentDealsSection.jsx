@@ -87,8 +87,8 @@ const StudentDealsSection = () => {
         <div className="flex flex-col lg:flex-row justify-center items-stretch gap-6 max-w-7xl mx-auto" style={{marginTop: '-7rem'}}>
           {/* Student Deals of the Day */}
           <div
-            className="bg-white text-gray-900 rounded-2xl p-6 shadow-xl flex flex-col"
-            style={{ flexBasis: "60%" }}
+            className="bg-white text-gray-900 rounded-2xl p-4 shadow-xl flex flex-col"
+            style={{ flexBasis: "48%" }}
           >
             <h2 className="text-2xl font-bold mb-6">Student deals of the day</h2>
             <div className="grid grid-cols-2 gap-4 flex-grow">
