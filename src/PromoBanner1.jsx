@@ -107,7 +107,7 @@ const PromoBanner1 = () => {
     border-top: 3px solid #f3f4f6;
     border-bottom: 3px solid #f3f4f6;
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
-    margin-top: 10rem;
+    margin-top: 8rem;
   }
 
   .promo1-slides {

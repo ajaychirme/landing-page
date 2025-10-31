@@ -31,7 +31,7 @@ const StudentDealsSection = () => {
       <section
         className="text-white pt-20 px-8 relative overflow-hidden"
         style={{
-          height: "28rem", // Extended from 23rem to 35rem
+          height: "26rem", // Extended from 23rem to 35rem
           background:
             "linear-gradient(135deg, #3d4fb8 0%, #7b3fb8 35%, #c93f9e 70%, #ff4d8f 100%)",
         }}
@@ -84,7 +84,7 @@ const StudentDealsSection = () => {
 
       {/* Cards Section - Positioned absolutely to maintain same position */}
       <div className="absolute top-72 left-0 right-0 px-8 pb-12 z-20">
-        <div className="flex flex-col lg:flex-row justify-center items-stretch gap-6 max-w-7xl mx-auto" style={{marginTop: '-5rem'}}>
+        <div className="flex flex-col lg:flex-row justify-center items-stretch gap-6 max-w-7xl mx-auto" style={{marginTop: '-7rem'}}>
           {/* Student Deals of the Day */}
           <div
             className="bg-white text-gray-900 rounded-2xl p-4 shadow-xl flex flex-col"
