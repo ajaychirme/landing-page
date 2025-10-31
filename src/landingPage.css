@@ -1,4 +1,9 @@
 /* Banner Container */
+.offer-box-container{
+    background: white;
+    width: "200px !important";
+    height:"200px !important";
+}
 .banner-container {
     width: 100%;
     aspect-ratio: 1335/342;

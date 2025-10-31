@@ -3,11 +3,14 @@ import splash1 from "./assets/splash-image-1.png";
 import totumSearch from "./assets/totum-search.png";
 import FeaturedOffers from "./OffersSection.jsx";
 import WhyTotum from "./WhyTotum.jsx";
-import PromoBanner from "./PromoBanner.jsx";
 import PromoBanner1 from "./PromoBanner1.jsx";
 import WhoCanJoin from "./WhoCanJoin.jsx";
 import FAQSection from "./FAQSection.jsx";
 import PlanSelector from "./PlanSelector.jsx";
+import DealsSection from "./DealsSection.jsx";
+import DiscountBanner from "./DiscountBanner.jsx";
+import NewBanner from "./NewBanner.jsx";
+import StudentDealsSection from "./StudentDealsSection.jsx";
 import "./landingPage.css";
 
 function LandingPage() {
@@ -86,7 +89,7 @@ function LandingPage() {
       </div>
 
       {/* Splash Image */}
-      <div className="banner-container">
+      {/* <div className="banner-container">
         <div className="banner">
           <div className="decoration planet">
             <svg viewBox="0 0 80 80" width="80" height="80">
@@ -116,38 +119,27 @@ function LandingPage() {
             <p className="subtitle">
               For Students, Professionals, Apprentices & More
             </p>
-            <p className="description">
-              TOTUM means 'all' - because everyone deserves access to great
-              savings. Trade union members, chartered professionals, NHS staff
-              and more anywhere else.
-            </p>
-            <button className="cta-button">Start Saving Now</button>
-                 {/* 🔁 Toggle Button for Demo */}
-      <div style={{ textAlign: "center", margin: "20px 0" }}>
-        <button
-          onClick={() => setShowPromo1((prev) => !prev)}
-          style={{
-            background:
-              "linear-gradient(to right, #c93f9e, #ff4d8f)",
-            color: "#fff",
-            padding: "10px 20px",
-            border: "none",
-            borderRadius: "8px",
-            cursor: "pointer",
-            fontWeight: "600",
-          }}
-        >
-          {showPromo1 ? "Show PromoBanner" : "Show PromoBanner1"}
-        </button>
-      </div>
+
           </div>
         </div>
-      </div>
+        <div className="offer-box-container">
+              <div className="left-offer-box">
 
- 
+              </div>
+              <div>
+                <div className="right-offer-1"></div>
+                <div className="right-offer-2"></div>
+              </div>
+            </div>
+      </div> */}
+
+{/* <DealsSection/> */}
+      <StudentDealsSection/>
+      {/* <DiscountBanner/> */}
+      {/* <NewBanner/> */}
 
       {/* 🔥 Conditionally Render the Promo Banner */}
-      {showPromo1 ? <PromoBanner1 /> : <PromoBanner />}
+<PromoBanner1 />
 
       {/* Other Sections */}
       <WhoCanJoin />
