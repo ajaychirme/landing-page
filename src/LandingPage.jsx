@@ -110,7 +110,7 @@ function LandingPage() {
             (e.target.style.transform = "scale(1)")
           }
         >
-          {showAnimationDeals ? "Show Student Deals" : "Show Animated Deals"}
+          {showAnimationDeals ? "Show with icons" : "Show without icons"}
         </button>
       </div>
 
