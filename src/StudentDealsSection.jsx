@@ -84,11 +84,11 @@ const StudentDealsSection = () => {
 
       {/* Cards Section - Positioned absolutely to maintain same position */}
       <div className="absolute top-72 left-0 right-0 px-8 pb-12 z-20">
-        <div className="flex flex-col lg:flex-row justify-center items-stretch gap-6 max-w-7xl mx-auto" style={{marginTop: '-7rem'}}>
+        <div className="flex flex-col lg:flex-row justify-center items-stretch gap-6 max-w-7xl mx-auto" style={{marginTop: '-5rem'}}>
           {/* Student Deals of the Day */}
           <div
             className="bg-white text-gray-900 rounded-2xl p-4 shadow-xl flex flex-col"
-            style={{ flexBasis: "48%" }}
+            style={{ height:'20rem',flexBasis: "38%" }}
           >
             <h2 className="text-2xl font-bold mb-6">Student deals of the day</h2>
             <div className="grid grid-cols-2 gap-4 flex-grow">
@@ -119,7 +119,7 @@ const StudentDealsSection = () => {
           {/* Card 2 */}
           <div
             className="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col"
-            style={{ flexBasis: "20%" }}
+            style={{ height: '20rem', flexBasis: "20%" }}
           >
             <div className="relative h-56 bg-gradient-to-br from-orange-500 to-purple-600 overflow-hidden">
               <img
@@ -141,7 +141,7 @@ const StudentDealsSection = () => {
           {/* Card 3 */}
           <div
             className="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col"
-            style={{ flexBasis: "20%" }}
+            style={{ height:'20rem', flexBasis: "20%" }}
           >
             <div className="relative h-56 overflow-hidden">
               <img
