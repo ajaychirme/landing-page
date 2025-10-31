@@ -11,6 +11,7 @@ import DealsSection from "./DealsSection.jsx";
 import DiscountBanner from "./DiscountBanner.jsx";
 import NewBanner from "./NewBanner.jsx";
 import StudentDealsSection from "./StudentDealsSection.jsx";
+import AnimationDeals from "./AnimationDeals.jsx";
 import "./landingPage.css";
 
 function LandingPage() {
@@ -23,7 +24,7 @@ function LandingPage() {
 
   const [index, setIndex] = useState(0);
   const [fade, setFade] = useState(true);
-  const [showPromo1, setShowPromo1] = useState(false); // 🔥 state for toggling banners
+  const [showAnimationDeals, setShowAnimationDeals] = useState(true); // 🔥 toggle state
 
   useEffect(() => {
     const fadeDuration = 1000;
@@ -88,60 +89,36 @@ function LandingPage() {
         </div>
       </div>
 
-      {/* Splash Image */}
-      {/* <div className="banner-container">
-        <div className="banner">
-          <div className="decoration planet">
-            <svg viewBox="0 0 80 80" width="80" height="80">
-              <circle cx="40" cy="40" r="25" strokeWidth="3" />
-              <ellipse cx="40" cy="40" rx="45" ry="12" strokeWidth="3" />
-            </svg>
-          </div>
+      {/* 🔘 Toggle Button */}
+      <div style={{ textAlign: "center", margin: "20px 0" }}>
+        <button
+          onClick={() => setShowAnimationDeals(!showAnimationDeals)}
+          style={{
+            background: "linear-gradient(90deg, #6a1a8c, #db00ff, #ff007f)",
+            color: "white",
+            border: "none",
+            borderRadius: "25px",
+            padding: "10px 20px",
+            cursor: "pointer",
+            fontWeight: "600",
+            transition: "transform 0.2s ease, background 0.5s ease",
+          }}
+          onMouseEnter={(e) =>
+            (e.target.style.transform = "scale(1.05)")
+          }
+          onMouseLeave={(e) =>
+            (e.target.style.transform = "scale(1)")
+          }
+        >
+          {showAnimationDeals ? "Show Student Deals" : "Show Animated Deals"}
+        </button>
+      </div>
 
-          <div className="decoration star">
-            <svg viewBox="0 0 60 60" width="60" height="60">
-              <path
-                d="M30 5 L35 25 L55 30 L35 35 L30 55 L25 35 L5 30 L25 25 Z"
-                strokeWidth="2.5"
-              />
-            </svg>
-          </div>
+      {/* 🔄 Conditional Rendering */}
+      {showAnimationDeals ? <AnimationDeals /> : <StudentDealsSection />}
 
-          <div className="decoration circle-small"></div>
-          <div className="decoration circle-large"></div>
-          <div className="decoration asterisk">✱</div>
-          <div className="decoration circle-right"></div>
-          <div className="decoration blob-bottom"></div>
-          <div className="decoration blob-left"></div>
-
-          <div className="content">
-            <h1>The UK's No.1 Discount Card for All</h1>
-            <p className="subtitle">
-              For Students, Professionals, Apprentices & More
-            </p>
-
-          </div>
-        </div>
-        <div className="offer-box-container">
-              <div className="left-offer-box">
-
-              </div>
-              <div>
-                <div className="right-offer-1"></div>
-                <div className="right-offer-2"></div>
-              </div>
-            </div>
-      </div> */}
-
-{/* <DealsSection/> */}
-      <StudentDealsSection/>
-      {/* <DiscountBanner/> */}
-      {/* <NewBanner/> */}
-
-      {/* 🔥 Conditionally Render the Promo Banner */}
-<PromoBanner1 />
-
-      {/* Other Sections */}
+      {/* 🔥 Other Sections */}
+      <PromoBanner1 />
       <WhoCanJoin />
       <FeaturedOffers />
       <PlanSelector />

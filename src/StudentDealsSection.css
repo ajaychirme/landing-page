@@ -1,0 +1,24 @@
+.subtle-gradient-bg {
+  background: linear-gradient(
+    135deg,
+    #3d4fb8 0%,
+    #7b3fb8 25%,
+    #c93f9e 60%,
+    #ff4d8f 100%
+  );
+  background-size: 600% 600%;
+  animation: subtleFlow 30s ease-in-out infinite;
+  transition: background 1s ease-in-out;
+}
+
+@keyframes subtleFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
