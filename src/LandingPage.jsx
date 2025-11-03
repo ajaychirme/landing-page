@@ -11,7 +11,6 @@ import DealsSection from "./DealsSection.jsx";
 import DiscountBanner from "./DiscountBanner.jsx";
 import NewBanner from "./NewBanner.jsx";
 import StudentDealsSection from "./StudentDealsSection.jsx";
-import AnimationDeals from "./AnimationDeals.jsx";
 import "./landingPage.css";
 
 function LandingPage() {
@@ -90,32 +89,9 @@ function LandingPage() {
       </div>
 
       {/* 🔘 Toggle Button */}
-      <div style={{ textAlign: "center", margin: "20px 0" }}>
-        <button
-          onClick={() => setShowAnimationDeals(!showAnimationDeals)}
-          style={{
-            background: "linear-gradient(90deg, #6a1a8c, #db00ff, #ff007f)",
-            color: "white",
-            border: "none",
-            borderRadius: "25px",
-            padding: "10px 20px",
-            cursor: "pointer",
-            fontWeight: "600",
-            transition: "transform 0.2s ease, background 0.5s ease",
-          }}
-          onMouseEnter={(e) =>
-            (e.target.style.transform = "scale(1.05)")
-          }
-          onMouseLeave={(e) =>
-            (e.target.style.transform = "scale(1)")
-          }
-        >
-          {showAnimationDeals ? "Show with icons" : "Show without icons"}
-        </button>
-      </div>
 
       {/* 🔄 Conditional Rendering */}
-      {showAnimationDeals ? <AnimationDeals /> : <StudentDealsSection />}
+      {<StudentDealsSection />}
 
       {/* 🔥 Other Sections */}
       <PromoBanner1 />

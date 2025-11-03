@@ -39,8 +39,8 @@ const PromoBanner1 = () => {
       description:
         "Up to 50% off + extra 10% off at MYPROTEIN with TOTUM. Enjoy savings on high-quality protein, supplements, and nutrition essentials.",
       buttonText: "GET OFFER",
-      accentColor: "#059669",
-      lightAccent: "#10b981",
+      accentColor: "#0d9488",
+      lightAccent: "#14b8a6",
     },
     {
       id: 4,
@@ -51,8 +51,8 @@ const PromoBanner1 = () => {
       description:
         "Save up to £150 at TUI with your TOTUM membership. Perfect for students planning their next escape. Book your dream holiday for less.",
       buttonText: "GET OFFER",
-      accentColor: "#7b3fb8",
-      lightAccent: "#9333ea",
+      accentColor: "#8b5cf6",
+      lightAccent: "#a78bfa",
     },
     {
       id: 5,
@@ -108,6 +108,7 @@ const PromoBanner1 = () => {
     border-bottom: 3px solid #f3f4f6;
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
     margin-top: 8rem;
+    margin-bottom: 4rem;
   }
 
   .promo1-slides {
@@ -187,10 +188,12 @@ const PromoBanner1 = () => {
     color: white;
     letter-spacing: 0.5px;
     transition: all 0.4s ease;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
   }
 
   .promo1-btn:hover {
     transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
   }
 
   .promo1-img-wrap {
@@ -229,6 +232,7 @@ const PromoBanner1 = () => {
     cursor: pointer;
     z-index: 10;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
   }
 
   .promo1-arrow svg {
@@ -240,6 +244,7 @@ const PromoBanner1 = () => {
     background-color: #fff0fa;
     border-color: #c93f9e;
     transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 8px 24px rgba(201, 63, 158, 0.2);
   }
 
   .promo1-arrow:hover svg {
@@ -254,34 +259,147 @@ const PromoBanner1 = () => {
     right: 30px;
   }
 
+  /* Simple Circular Dot Indicators */
   .promo1-dots {
     position: absolute;
-    bottom: -20px;
+    bottom: 25px;
     left: 50%;
     transform: translateX(-50%);
-    display: none;
+    display: flex;
     gap: 12px;
     z-index: 10;
-    padding: 14px 28px;
+    padding: 12px 20px;
     border-radius: 50px;
-    background: white;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   }
 
   .promo1-dot {
-    width: 10px;
-    height: 10px;
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
     background: #d1d5db;
     border: none;
     cursor: pointer;
-    transition: all 0.4s ease;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+    padding: 0;
+  }
+
+  .promo1-dot:hover {
+    background: #ff4d8f;
+    transform: scale(1.3);
   }
 
   .promo1-dot.active {
-    width: 36px;
+    width: 32px;
     border-radius: 8px;
     background: linear-gradient(135deg, #c93f9e, #ff4d8f);
+    box-shadow: 0 4px 12px rgba(201, 63, 158, 0.4);
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .promo1-text {
+      margin-left: 2em;
+    }
+
+    .promo1-img-wrap {
+      margin-right: 8em;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .promo1-container {
+      height: 600px;
+      margin-top: 4rem;
+    }
+
+    .promo1-slide-inner {
+      padding: 0 30px;
+    }
+
+    .promo1-content {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    .promo1-text {
+      margin-left: 0;
+      text-align: center;
+    }
+
+    .promo1-title {
+      font-size: 2rem;
+    }
+
+    .promo1-desc {
+      font-size: 1rem;
+    }
+
+    .promo1-img-wrap {
+      margin-right: 0;
+      height: 250px;
+    }
+
+    .promo1-arrow {
+      width: 50px;
+      height: 50px;
+    }
+
+    .promo1-left {
+      left: 15px;
+    }
+
+    .promo1-right {
+      right: 15px;
+    }
+
+    .promo1-dots {
+      gap: 10px;
+      padding: 10px 16px;
+      bottom: 20px;
+    }
+
+    .promo1-dot {
+      width: 10px;
+      height: 10px;
+    }
+
+    .promo1-dot.active {
+      width: 28px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .promo1-container {
+      height: 650px;
+    }
+
+    .promo1-title {
+      font-size: 1.6rem;
+    }
+
+    .promo1-btn {
+      width: 100%;
+      justify-content: center;
+      padding: 16px 36px;
+    }
+
+    .promo1-dots {
+      gap: 8px;
+      padding: 8px 14px;
+    }
+
+    .promo1-dot {
+      width: 8px;
+      height: 8px;
+    }
+
+    .promo1-dot.active {
+      width: 24px;
+    }
   }
       `}</style>
 
@@ -353,12 +471,14 @@ const PromoBanner1 = () => {
         </svg>
       </button>
 
+      {/* Simple Circular Dot Indicators */}
       <div className="promo1-dots">
         {slides.map((_, i) => (
           <button
             key={i}
             className={`promo1-dot ${i === currentSlide ? "active" : ""}`}
             onClick={() => goToSlide(i)}
+            aria-label={`Go to slide ${i + 1}`}
           />
         ))}
       </div>
