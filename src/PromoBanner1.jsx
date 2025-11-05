@@ -472,7 +472,7 @@ const PromoBanner1 = () => {
       </button>
 
       {/* Simple Circular Dot Indicators */}
-      <div className="promo1-dots">
+      {/* <div className="promo1-dots">
         {slides.map((_, i) => (
           <button
             key={i}
@@ -481,7 +481,7 @@ const PromoBanner1 = () => {
             aria-label={`Go to slide ${i + 1}`}
           />
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };

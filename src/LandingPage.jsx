@@ -11,6 +11,7 @@ import DealsSection from "./DealsSection.jsx";
 import DiscountBanner from "./DiscountBanner.jsx";
 import NewBanner from "./NewBanner.jsx";
 import StudentDealsSection from "./StudentDealsSection.jsx";
+import CategoriesSection from "./CategoriesSection.jsx";
 import "./landingPage.css";
 
 function LandingPage() {
@@ -98,6 +99,7 @@ function LandingPage() {
       <WhoCanJoin />
       <FeaturedOffers />
       <PlanSelector />
+      <CategoriesSection/>
       <WhyTotum />
       <FAQSection />
     </div>
