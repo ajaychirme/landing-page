@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import splash1 from "./assets/splash-image-1.png";
 import totumSearch from "./assets/totum-search.png";
 import FeaturedOffers from "./OffersSection.jsx";
+import TotumNavbar from "./TotumNavbar.jsx";
 import WhyTotum from "./WhyTotum.jsx";
 import PromoBanner1 from "./PromoBanner1.jsx";
 import WhoCanJoin from "./WhoCanJoin.jsx";
@@ -25,6 +26,7 @@ function LandingPage() {
   const [index, setIndex] = useState(0);
   const [fade, setFade] = useState(true);
   const [showAnimationDeals, setShowAnimationDeals] = useState(true); // 🔥 toggle state
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
 
   useEffect(() => {
     const fadeDuration = 1000;
@@ -45,54 +47,29 @@ function LandingPage() {
     <div>
       {/* Ticker Bar */}
       <div
-        className="sticky-div"
-        style={{
-          position: "sticky",
-          top: "0",
-          zIndex: 100,
-          backgroundColor: "white",
-          paddingBottom: "1rem",
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            color: "#fff",
-            background: "linear-gradient(to right, #6a1a8c, #db00ff, #ff007f)",
-            width: "100%",
-            height: "40px",
-            cursor: "pointer",
-            fontWeight: "700",
-            fontSize: "18px",
-            fontStyle: "italic",
-            position: "relative",
-            overflow: "hidden",
-          }}
-        >
-          <span
-            style={{
-              position: "absolute",
-              opacity: fade ? 1 : 0,
-              transition: "opacity 1s ease-in-out",
-              whiteSpace: "nowrap",
-            }}
-          >
-            {spanText[index]}
-          </span>
-        </div>
-
-        {/* Search Box */}
-        <div>
-          <img src={totumSearch} alt="totum-search" />
-        </div>
-      </div>
+  className="flex items-center justify-center text-white px-4 py-2 cursor-pointer font-bold italic relative overflow-hidden"
+  style={{
+    background: "linear-gradient(to right, #6a1a8c, #db00ff, #ff007f)",
+    minHeight: "40px",
+  }}
+>
+  <span
+    className="absolute transition-opacity duration-1000 text-center px-2"
+    style={{
+      opacity: fade ? 1 : 0,
+      fontSize: "clamp(12px, 3.5vw, 18px)",
+      lineHeight: "1.3",
+      maxWidth: "95%",
+    }}
+  >
+    {spanText[index]}
+  </span>
+</div>
 
       {/* 🔘 Toggle Button */}
-
+<TotumNavbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
       {/* 🔄 Conditional Rendering */}
-      {<StudentDealsSection />}
+      {<StudentDealsSection isLoggedIn={isLoggedIn} />}
 
       {/* 🔥 Other Sections */}
       <PromoBanner1 />
