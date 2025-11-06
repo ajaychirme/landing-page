@@ -76,7 +76,7 @@ function LandingPage() {
       <WhoCanJoin />
       <FeaturedOffers />
       <PlanSelector />
-      <CategoriesSection/>
+      {/* <CategoriesSection/> */}
       <WhyTotum />
       <FAQSection />
     </div>
