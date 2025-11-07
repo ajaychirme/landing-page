@@ -1,5 +1,4 @@
 import React, {useRef, useState, useEffect} from 'react';
-import './WhyTotum.css';
 
 const WhyTotum = () => {
     
@@ -32,7 +31,7 @@ const WhyTotum = () => {
     { number: '1M+', label: 'Active Members', value: 1, suffix: 'M+', prefix: '' }
   ];
 
-  // Intersection Observer to detect when stats section is visible
+  // Intersection Observer
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -42,30 +41,22 @@ const WhyTotum = () => {
           }
         });
       },
-      {
-        threshold: 0.5, // Trigger when 50% of the section is visible
-        rootMargin: '0px'
-      }
+      { threshold: 0.5 }
     );
 
     const currentRef = statsRef.current;
-    
-    if (currentRef) {
-      observer.observe(currentRef);
-    }
+    if (currentRef) observer.observe(currentRef);
 
     return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef);
-      }
+      if (currentRef) observer.unobserve(currentRef);
     };
-  }, []); // Remove isVisible from dependencies
+  }, []);
 
-  // Animate counters when visible
+  // Animate counters
   useEffect(() => {
     if (!isVisible) return;
 
-    const duration = 2000; // 2 seconds
+    const duration = 2000;
     const steps = 60;
     const stepDuration = duration / steps;
     const timers = [];
@@ -84,24 +75,18 @@ const WhyTotum = () => {
           return newCounters;
         });
 
-        if (currentStep >= steps) {
-          clearInterval(timer);
-        }
+        if (currentStep >= steps) clearInterval(timer);
       }, stepDuration);
 
       timers.push(timer);
     });
 
-    // Cleanup function
-    return () => {
-      timers.forEach(timer => clearInterval(timer));
-    };
-  }, [isVisible]); // Only depend on isVisible
+    return () => timers.forEach(clearInterval);
+  }, [isVisible]);
 
   const formatNumber = (value, stat) => {
     const { prefix, suffix } = stat;
     
-    // Format the number based on suffix type
     let formattedValue = '';
     
     if (suffix === 'M' || suffix === 'M+') {
@@ -146,65 +131,84 @@ const WhyTotum = () => {
     }
   ];
 
-  const testimonials3Col = [
-    {
-      text: '"I\'ve saved over £300 this year on everyday purchases. The discounts are incredible and so easy to use!"',
-      author: 'Sarah Mitchell',
-      role: 'University Student'
-    },
-    {
-      text: '"As an NHS nurse, every penny counts. TOTUM has helped me save on everything from groceries to tech."',
-      author: 'James Chen',
-      role: 'NHS Staff'
-    },
-    {
-      text: '"The professional membership is worth every penny. I use it daily and the savings add up fast!"',
-      author: 'Emily Roberts',
-      role: 'Trade Union Member'
-    }
-  ];
-
   return (
-    <div className="why-totum-section">
-      {/* Header */}
-      <div className="section-header flex flex-col">
-        <h2>Why TOTUM?</h2>
-        <p>
-          We're top-rated for a reason, and totally committed to bringing you the most exclusive
-          deals you won't get anywhere else, straight from your favourite brands. Get all of these
-          perks and more...
-        </p>
-      </div>
+    <div className="bg-white py-16 px-5">
+      <div className="max-w-7xl mx-auto">
 
-      {/* Stats Section */}
-      <div className="stats-section" ref={statsRef}>
-        <div className="stats-grid">
-          {stats.map((stat, index) => (
-            <div key={index} className="stat-item">
-              <span className="stat-number">
-                {isVisible ? formatNumber(counters[index], stat) : `${stat.prefix}0${stat.suffix}`}
-              </span>
-              <span className="stat-label">{stat.label}</span>
+        {/* Header */}
+        <div className="text-center mb-12 max-w-4xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-5">
+            Why TOTUM?
+          </h2>
+          <p className="text-lg md:text-xl text-gray-600">
+            We're top-rated for a reason, and totally committed to bringing you the most exclusive
+            deals you won't get anywhere else.
+          </p>
+        </div>
+
+        {/* Stats */}
+        <div 
+          ref={statsRef}
+          className="bg-gradient-to-r from-pink-600 to-pink-500 rounded-3xl p-8 md:p-12 mb-16 shadow-xl"
+        >
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+            {stats.map((stat, index) => (
+              <div key={index} className="text-center">
+                <div className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-2">
+                  {isVisible ? formatNumber(counters[index], stat) : `${stat.prefix}0${stat.suffix}`}
+                </div>
+                <div className="text-sm md:text-base text-white/90 font-medium">
+                  {stat.label}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Testimonials with PINK HOVER */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          {testimonials.map((testimonial, index) => (
+            <div 
+              key={index}
+              className="
+                bg-gray-50 rounded-2xl p-6 
+                transition-all duration-300 
+                flex flex-col border border-gray-200
+                hover:-translate-y-1
+                hover:border-pink-500
+                hover:shadow-[0_8px_24px_rgba(236,72,153,0.35)]
+              "
+            >
+              <h3 className="text-lg font-bold text-gray-900 mb-3">
+                {testimonial.title}
+              </h3>
+              <p className="text-gray-700 text-sm leading-relaxed mb-6 flex-grow">
+                {testimonial.text}
+              </p>
+              <div className="flex items-center gap-3 pt-4 border-t border-gray-200">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-r from-pink-600 to-pink-500 text-white font-bold flex items-center justify-center">
+                  {testimonial.avatar}
+                </div>
+                <div>
+                  <div className="font-semibold text-gray-900 text-sm">
+                    {testimonial.author}
+                  </div>
+                  <div className="text-xs text-gray-600">
+                    {testimonial.role}
+                  </div>
+                </div>
+              </div>
             </div>
           ))}
         </div>
-      </div>
 
-      {/* Testimonials Section - 4 Column Layout */}
-      <div className="testimonials-grid">
-        {testimonials.map((testimonial, index) => (
-          <div key={index} className="testimonial-card">
-            <h3 className="testimonial-title">{testimonial.title}</h3>
-            <p className="testimonial-text">{testimonial.text}</p>
-            <div className="testimonial-author">
-              <div className="author-avatar">{testimonial.avatar}</div>
-              <div className="author-info">
-                <div className="author-name">{testimonial.author}</div>
-                <div className="author-role">{testimonial.role}</div>
-              </div>
-            </div>
-          </div>
-        ))}
+        {/* CTA */}
+        <div className="text-center">
+          <button className="bg-gradient-to-r from-pink-600 to-pink-500 text-white font-bold py-4 px-12 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300">
+            Sign Up Today
+          </button>
+        </div>
+
       </div>
     </div>
   );

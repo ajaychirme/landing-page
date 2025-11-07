@@ -4,6 +4,7 @@ import totumSearch from "./assets/totum-search.png";
 import FeaturedOffers from "./OffersSection.jsx";
 import TotumNavbar from "./TotumNavbar.jsx";
 import WhyTotum from "./WhyTotum.jsx";
+import SSHightlighs from './SSHightlighs.jsx';
 import PromoBanner1 from "./PromoBanner1.jsx";
 import WhoCanJoin from "./WhoCanJoin.jsx";
 import FAQSection from "./FAQSection.jsx";
@@ -72,12 +73,13 @@ function LandingPage() {
       {<StudentDealsSection isLoggedIn={isLoggedIn} />}
 
       {/* 🔥 Other Sections */}
-      <PromoBanner1 />
+      {/* <PromoBanner1 /> */}
       <WhoCanJoin />
-      <FeaturedOffers />
+      <WhyTotum />
+      <SSHightlighs/>
+      {/* <FeaturedOffers /> */}
       <PlanSelector />
       {/* <CategoriesSection/> */}
-      <WhyTotum />
       <FAQSection />
     </div>
   );

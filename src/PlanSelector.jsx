@@ -16,19 +16,19 @@ const PlanSelector = () => {
       id: 'professionals',
       title: 'Professionals',
       subtitle: 'Trade unions, institutes',
-      theme: 'purple'
+      theme: 'pink'
     },
     {
       id: 'apprentices',
       title: 'Apprentices',
       subtitle: 'Learning on the job',
-      theme: 'blue'
+      theme: 'pink'
     },
     {
       id: 'public-sector',
       title: 'Public Sector',
       subtitle: 'NHS, Gov, Education',
-      theme: 'green'
+      theme: 'pink'
     }
   ];
 
