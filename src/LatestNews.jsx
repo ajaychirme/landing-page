@@ -1,8 +1,5 @@
 import React from "react";
-import news0 from "./assets/news0.webp";
-import news1 from "./assets/news1.webp";
-import news2 from "./assets/news2.webp";
-import news3 from "./assets/news3.webp";
+
 
 const LatestNews = () => {
   const articles = [
@@ -12,7 +9,6 @@ const LatestNews = () => {
       title: "WHAT ARE THE HIGHEST PAYING DEGREES IN THE UK?",
       description:
         "With the cost of university so high, one of the most common considerations when choosing a degree nowadays is how much it is likely to earn you in the long run.",
-      image: news0,
     },
     {
       id: 2,
@@ -20,7 +16,6 @@ const LatestNews = () => {
       title: "DO STUDENTS NEED A TV LICENCE?",
       description:
         "If you're about to start or return to university and you've found yourself panicking over whether students need a TV licence - fear not, we're here to help.",
-      image: news1,
     },
     {
       id: 3,
@@ -29,7 +24,6 @@ const LatestNews = () => {
         "STUDENTS AFFECTED BY STRIKES OR THE PANDEMIC COULD CLAIM £5,000 COMPENSATION",
       description:
         "Nearly 20,000 students in the UK have launched a multi-million-pound group legal action against UK universities, over disruption and lost learning due to strikes and the Covid pandemic.",
-      image: news2,
     },
     {
       id: 4,
@@ -37,7 +31,6 @@ const LatestNews = () => {
       title: "WHY STUDENT RENTAL PRICES WILL JUST KEEP ON RISING",
       description:
         "A combination of private-equity investment, shortage of supply and resilient demand are causing students to pay out a larger and larger proportion of their finances on rent.",
-      image: news3,
     },
   ];
 
