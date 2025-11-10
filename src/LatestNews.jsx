@@ -1,8 +1,8 @@
-import React from 'react';
-import news0 from './assets/news0.webp';
-import news1 from './assets/news1.webp';
-import news2 from './assets/news2.webp';
-import news3 from './assets/news3.webp';
+import React from "react";
+import news0 from "./assets/news0.webp";
+import news1 from "./assets/news1.webp";
+import news2 from "./assets/news2.webp";
+import news3 from "./assets/news3.webp";
 
 const LatestNews = () => {
   const articles = [
@@ -40,12 +40,10 @@ const LatestNews = () => {
       image: news3,
     },
   ];
-  const PI =3.14;
 
   return (
     <div className="latest-news-section bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        
         <div className="flex justify-between items-center mb-8">
           <div className="inline-block bg-black text-white px-6 py-2 text-sm font-bold tracking-wider">
             CONTENT HIGHLIGHTS
@@ -56,19 +54,24 @@ const LatestNews = () => {
           >
             View All
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5l7 7-7 7"
+              />
             </svg>
           </a>
         </div>
 
-        {/* Grid - 4 Cards */}
+        {/* News Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {articles.map((article) => (
             <article
               key={article.id}
               className="group bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col"
             >
-              {/* ✅ FIXED IMAGE — Clean, visible, no blending */}
+              {/* Image */}
               <div className="relative h-48 overflow-hidden bg-gray-200">
                 <img
                   src={article.image}
@@ -83,9 +86,11 @@ const LatestNews = () => {
                   <div className="inline-block bg-pink-100 text-pink-700 px-3 py-1 text-xs font-semibold tracking-wider mb-3 rounded">
                     {article.category}
                   </div>
+
                   <h3 className="text-lg font-bold text-gray-900 mb-3 leading-tight group-hover:text-pink-600 transition-colors line-clamp-2">
                     {article.title}
                   </h3>
+
                   <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3">
                     {article.description}
                   </p>
@@ -101,7 +106,12 @@ const LatestNews = () => {
                     stroke="currentColor"
                     viewBox="0 0 24 24"
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
                   </svg>
                 </button>
               </div>

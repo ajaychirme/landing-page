@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import splash1 from "./assets/splash-image-1.png";
 import totumSearch from "./assets/totum-search.png";
+
 import FeaturedOffers from "./OffersSection.jsx";
 import TotumNavbar from "./TotumNavbar.jsx";
 import WhyTotum from "./WhyTotum.jsx";
-import SSHightlighs from './SSHightlighs.jsx';
+import SSHightlighs from "./SSHightlighs.jsx";
 import LatestNews from "./LatestNews.jsx";
 import PromoBanner1 from "./PromoBanner1.jsx";
 import WhoCanJoin from "./WhoCanJoin.jsx";
@@ -15,6 +16,7 @@ import DiscountBanner from "./DiscountBanner.jsx";
 import NewBanner from "./NewBanner.jsx";
 import StudentDealsSection from "./StudentDealsSection.jsx";
 import CategoriesSection from "./CategoriesSection.jsx";
+
 import "./landingPage.css";
 
 function LandingPage() {
@@ -27,8 +29,7 @@ function LandingPage() {
 
   const [index, setIndex] = useState(0);
   const [fade, setFade] = useState(true);
-  const [showAnimationDeals, setShowAnimationDeals] = useState(true); // 🔥 toggle state
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     const fadeDuration = 1000;
@@ -49,39 +50,34 @@ function LandingPage() {
     <div>
       {/* Ticker Bar */}
       <div
-  className="flex items-center justify-center text-white px-4 py-2 cursor-pointer font-bold italic relative overflow-hidden"
-  style={{
-    background: "linear-gradient(to right, #6a1a8c, #db00ff, #ff007f)",
-    minHeight: "40px",
-  }}
->
-  <span
-    className="absolute transition-opacity duration-1000 text-center px-2"
-    style={{
-      opacity: fade ? 1 : 0,
-      fontSize: "clamp(12px, 3.5vw, 18px)",
-      lineHeight: "1.3",
-      maxWidth: "95%",
-    }}
-  >
-    {spanText[index]}
-  </span>
-</div>
+        className="flex items-center justify-center text-white px-4 py-2 cursor-pointer font-bold italic relative overflow-hidden"
+        style={{
+          background: "linear-gradient(to right, #6a1a8c, #db00ff, #ff007f)",
+          minHeight: "40px",
+        }}
+      >
+        <span
+          className="absolute transition-opacity duration-1000 text-center px-2"
+          style={{
+            opacity: fade ? 1 : 0,
+            fontSize: "clamp(12px, 3.5vw, 18px)",
+            lineHeight: "1.3",
+            maxWidth: "95%",
+          }}
+        >
+          {spanText[index]}
+        </span>
+      </div>
 
-      {/* 🔘 Toggle Button */}
-<TotumNavbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
-      {/* 🔄 Conditional Rendering */}
-      {<StudentDealsSection isLoggedIn={isLoggedIn} />}
+      <TotumNavbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
 
-      {/* 🔥 Other Sections */}
-      {/* <PromoBanner1 /> */}
+      <StudentDealsSection isLoggedIn={isLoggedIn} />
+
       <WhoCanJoin />
       <WhyTotum />
-      <SSHightlighs/>
-      {/* <FeaturedOffers /> */}
+      <SSHightlighs />
       <PlanSelector />
-      <LatestNews/>
-      {/* <CategoriesSection/> */}
+      <LatestNews />
       <FAQSection />
     </div>
   );
