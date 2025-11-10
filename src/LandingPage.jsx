@@ -5,6 +5,7 @@ import FeaturedOffers from "./OffersSection.jsx";
 import TotumNavbar from "./TotumNavbar.jsx";
 import WhyTotum from "./WhyTotum.jsx";
 import SSHightlighs from './SSHightlighs.jsx';
+import LatestNews from "./LatestNews.jsx";
 import PromoBanner1 from "./PromoBanner1.jsx";
 import WhoCanJoin from "./WhoCanJoin.jsx";
 import FAQSection from "./FAQSection.jsx";
@@ -79,6 +80,7 @@ function LandingPage() {
       <SSHightlighs/>
       {/* <FeaturedOffers /> */}
       <PlanSelector />
+      <LatestNews/>
       {/* <CategoriesSection/> */}
       <FAQSection />
     </div>
