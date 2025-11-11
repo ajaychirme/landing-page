@@ -1,9 +1,20 @@
 import React from 'react';
 import LandingPage from './LandingPage'
+import Portfolio from './Portfolio.jsx'
+import Portfolio1 from './Portfolio1.jsx'
+import Portfolio2 from './Portfolio2.jsx'
+import { BrowserRouter, Router, Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <LandingPage/>
+     <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/saurabhgalgale" element={<Portfolio />} />
+        <Route path="/saurabhgalgale1" element={<Portfolio1 />} />
+        <Route path="/saurabhgalgale2" element={<Portfolio2 />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
