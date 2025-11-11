@@ -1,4 +1,8 @@
 import React from "react";
+import news0 from "./assets/news0.webp";
+import news1 from "./assets/news1.webp";
+import news2 from "./assets/news2.webp";
+import news3 from "./assets/news3.webp";
 
 // const LatestNews = () => {
 //   const articles = [
