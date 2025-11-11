@@ -49,7 +49,7 @@ const LatestNews = () => {
             CONTENT HIGHLIGHTS
           </div>
           <a
-            href="#"
+            href="/view-all"
             className="text-sm font-semibold text-gray-900 hover:text-pink-600 transition-colors flex items-center gap-2"
           >
             View All
