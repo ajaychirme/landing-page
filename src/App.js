@@ -3,7 +3,7 @@ import LandingPage from './LandingPage'
 import Portfolio from './Portfolio.jsx'
 import Portfolio1 from './Portfolio1.jsx'
 import Portfolio2 from './Portfolio2.jsx'
-import { BrowserRouter, Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
   return (

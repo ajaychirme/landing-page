@@ -53,7 +53,6 @@ export default function DealsSection() {
               </h3>
             </div>
             <a
-              href="#"
               className="text-blue-600 font-semibold hover:underline mt-auto"
             >
               Discover More →
@@ -71,7 +70,6 @@ export default function DealsSection() {
                 Save more on food & drink
               </h3>
               <a
-                href="#"
                 className="text-blue-600 font-semibold hover:underline"
               >
                 Discover More →

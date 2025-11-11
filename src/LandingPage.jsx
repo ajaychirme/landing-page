@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from "react";
-import splash1 from "./assets/splash-image-1.png";
-import totumSearch from "./assets/totum-search.png";
+// import splash1 from "./assets/splash-image-1.png";
+// import totumSearch from "./assets/totum-search.png";
 
-import FeaturedOffers from "./OffersSection.jsx";
+// import FeaturedOffers from "./OffersSection.jsx";
 import TotumNavbar from "./TotumNavbar.jsx";
 import WhyTotum from "./WhyTotum.jsx";
 import SSHightlighs from "./SSHightlighs.jsx";
 import LatestNews from "./LatestNews.jsx";
-import PromoBanner1 from "./PromoBanner1.jsx";
+// import PromoBanner1 from "./PromoBanner1.jsx";
 import WhoCanJoin from "./WhoCanJoin.jsx";
 import FAQSection from "./FAQSection.jsx";
 import PlanSelector from "./PlanSelector.jsx";
-import DealsSection from "./DealsSection.jsx";
-import DiscountBanner from "./DiscountBanner.jsx";
-import NewBanner from "./NewBanner.jsx";
+// import DealsSection from "./DealsSection.jsx";
+// import DiscountBanner from "./DiscountBanner.jsx";
+// import NewBanner from "./NewBanner.jsx";
 import StudentDealsSection from "./StudentDealsSection.jsx";
-import CategoriesSection from "./CategoriesSection.jsx";
+// import CategoriesSection from "./CategoriesSection.jsx";
 
 import "./landingPage.css";
 

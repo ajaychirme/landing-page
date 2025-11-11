@@ -112,7 +112,7 @@ const NewBanner = () => {
             />
             <div className="promo-content">
               <h3>No tricks, just Halloween deals</h3>
-              <a href="#">Discover More →</a>
+              <a>Discover More →</a>
             </div>
           </div>
 
@@ -123,7 +123,7 @@ const NewBanner = () => {
             />
             <div className="promo-content">
               <h3>Save more on food & drink</h3>
-              <a href="#">Discover More →</a>
+              <a>Discover More →</a>
             </div>
           </div>
         </div>

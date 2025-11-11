@@ -3,7 +3,7 @@ import './OffersSection.css';
 
 const OffersSection = () => {
   const popularCarouselRef = useRef(null);
-  const featuredCarouselRef = useRef(null);
+  // const featuredCarouselRef = useRef(null);
 
   const scrollAmount = 320; // 300px card + 20px gap
   const featuredOffers = [
@@ -198,7 +198,7 @@ const OffersSection = () => {
           <div>
             <div className="featured-header">HIGHLIGHTS</div>
           </div>
-          <a href="#" className="view-more">View More →</a>
+          <a className="view-more">View More →</a>
         </div>
 
         <div className="carousel-wrapper">
