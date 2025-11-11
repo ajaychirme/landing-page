@@ -1,24 +1,6 @@
-import React, {useRef, useState, useEffect} from 'react';
+import  {useRef, useState, useEffect} from 'react';
 
 const WhyTotum = () => {
-    
-  const benefits = [
-    {
-      icon: '📱',
-      title: 'Only on TOTUM',
-      description: "Big brands and offers you won't find anywhere else."
-    },
-    {
-      icon: '💰',
-      title: '1000s of dreamy deals',
-      description: 'Enjoy thousands of student offers, all in one place.'
-    },
-    {
-      icon: '💳',
-      title: 'Whenever, wherever',
-      description: 'Get discounts 24/7 on our website or must-have app.'
-    }
-  ];
 
   const [isVisible, setIsVisible] = useState(false);
   const [counters, setCounters] = useState([0, 0, 0, 0]);
