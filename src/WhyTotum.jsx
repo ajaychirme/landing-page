@@ -64,6 +64,7 @@ const WhyTotum = () => {
     });
 
     return () => timers.forEach(clearInterval);
+    // eslint-disable-next-line
   }, [isVisible]);
 
   const formatNumber = (value, stat) => {
@@ -167,7 +168,7 @@ const WhyTotum = () => {
 
         <div className="text-center">
           <a
-            href="#"
+            href="/sign-up"
             className="bg-gradient-to-r from-pink-600 to-pink-500 text-white font-bold py-4 px-12 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 inline-block"
           >
             Sign Up Today

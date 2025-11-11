@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Menu, X, Github, Linkedin, Mail, Download, ExternalLink, ChevronDown, Sun, Moon, Code, Briefcase, Award, User, FolderGit2, ArrowRight, Sparkles, Zap, Target, TrendingUp, Users, Globe, CheckCircle, Star, Rocket, Terminal, Database, Layers, Package, GitBranch } from 'lucide-react';
+import { Menu, X, Github, Linkedin, Mail, Download, ExternalLink, ChevronDown, Sun, Moon, Code, Briefcase, Award, User, FolderGit2, ArrowRight, Sparkles, Zap, Target, TrendingUp, Users, Globe, CheckCircle, Star, Rocket, Terminal, Database, Layers } from 'lucide-react';
 
 const useTheme = () => {
   const [theme, setTheme] = useState('dark');
@@ -112,6 +112,7 @@ const Navbar = ({ theme, setTheme, activeSection }) => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   
   const navItems = [
@@ -217,6 +218,7 @@ const Hero = () => {
       setCurrentRole((prev) => (prev + 1) % roles.length);
     }, 3000);
     return () => clearInterval(interval);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   
   useEffect(() => {
@@ -225,6 +227,7 @@ const Hero = () => {
     };
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   
   return (
@@ -1519,6 +1522,7 @@ const App = () => {
   
   useEffect(() => {
     setTimeout(() => setLoading(false), 3000);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   
   useEffect(() => {
@@ -1539,6 +1543,7 @@ const App = () => {
     });
     
     return () => observer.disconnect();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   
   return (

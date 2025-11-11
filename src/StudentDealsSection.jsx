@@ -119,7 +119,7 @@ const StudentDealsSection = ({isLoggedIn}) => {
               <h3 className="text-xl font-bold text-gray-900 mb-2 flex-grow">
                 No tricks, just Halloween deals
               </h3>
-              <a href="#" className="text-pink-600 font-semibold hover:text-pink-700 transition">
+              <a href="/discount-more" className="text-pink-600 font-semibold hover:text-pink-700 transition">
                 Discover More →
               </a>
             </div>
@@ -141,7 +141,7 @@ const StudentDealsSection = ({isLoggedIn}) => {
               <h3 className="text-xl font-bold text-gray-900 mb-2 flex-grow">
                 Save more on food & drink
               </h3>
-              <a href="#" className="text-pink-600 font-semibold hover:text-pink-700 transition">
+              <a href="/discount-more" className="text-pink-600 font-semibold hover:text-pink-700 transition">
                 Discover More →
               </a>
             </div>

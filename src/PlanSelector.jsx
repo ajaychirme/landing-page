@@ -239,7 +239,7 @@ const PlanSelector = () => {
         <div className={`popular-offers-section theme-${currentTheme}`}>
           <div className="popular-offers-header">
             <h3>Popular Offers for {currentTitle}</h3>
-            <a href="#" className={`view-all-link theme-${currentTheme}`}>View All →</a>
+            <a href="/view-all" className={`view-all-link theme-${currentTheme}`}>View All →</a>
           </div>
 
           <div className="carousel-wrapper">

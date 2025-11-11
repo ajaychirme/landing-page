@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Menu, X, Github, Linkedin, Mail, Download, ExternalLink, ChevronDown, Sun, Moon, Code, Briefcase, Award, User, FolderGit2, ArrowRight, Sparkles, Zap, Target, TrendingUp, Users, Globe, CheckCircle, Star } from 'lucide-react';
+import { Menu, X, Github, Linkedin, Mail, Download, ExternalLink, ChevronDown, Sun, Moon, Code, Briefcase, Award, FolderGit2, ArrowRight, Sparkles, Zap, Target, TrendingUp, Users, Globe, CheckCircle } from 'lucide-react';
 
 const useTheme = () => {
   const [theme, setTheme] = useState('dark');
@@ -15,6 +15,7 @@ const useMousePosition = () => {
     const updatePosition = (e) => setPosition({ x: e.clientX, y: e.clientY });
     window.addEventListener('mousemove', updatePosition);
     return () => window.removeEventListener('mousemove', updatePosition);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return position;
 };
@@ -31,29 +32,6 @@ const useInView = (threshold = 0.1) => {
     return () => observer.disconnect();
   }, [threshold]);
   return [ref, inView];
-};
-
-const AnimatedCounter = ({ end, duration = 2000 }) => {
-  const [count, setCount] = useState(0);
-  const [ref, inView] = useInView();
-  
-  useEffect(() => {
-    if (!inView) return;
-    let start = 0;
-    const increment = end / (duration / 16);
-    const timer = setInterval(() => {
-      start += increment;
-      if (start >= end) {
-        setCount(end);
-        clearInterval(timer);
-      } else {
-        setCount(Math.floor(start));
-      }
-    }, 16);
-    return () => clearInterval(timer);
-  }, [inView, end, duration]);
-  
-  return <span ref={ref}>{count}</span>;
 };
 
 const Loader = ({ loading }) => {
@@ -126,6 +104,7 @@ const ParticleBackground = () => {
       cancelAnimationFrame(animationId);
       window.removeEventListener('resize', handleResize);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   
   return <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none opacity-40" />;
@@ -139,6 +118,7 @@ const Navbar = ({ theme, setTheme, activeSection }) => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   
   const navItems = [
@@ -239,6 +219,7 @@ const Hero = () => {
       setCurrentRole((prev) => (prev + 1) % roles.length);
     }, 3000);
     return () => clearInterval(interval);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   
   return (
@@ -1153,6 +1134,7 @@ export default function App() {
   
   useEffect(() => {
     setTimeout(() => setLoading(false), 2500);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   
   useEffect(() => {
@@ -1175,6 +1157,7 @@ export default function App() {
     });
     
     return () => observer.disconnect();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   
   return (

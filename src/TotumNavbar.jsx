@@ -763,7 +763,7 @@ const TotumNavbar = ({ isLoggedIn, setIsLoggedIn }) => {
               onMouseEnter={() => item.hasDropdown && handleMouseEnter(item.id)}
               onMouseLeave={handleMouseLeave}
             >
-              <a href="#" className={`nav-link ${activeDropdown === item.id ? "active" : ""}`}>
+              <a href="/new-icon" className={`nav-link ${activeDropdown === item.id ? "active" : ""}`}>
                 {item.label}
                 {item.hasDropdown && <span className="dropdown-icon">▼</span>}
               </a>
@@ -771,7 +771,7 @@ const TotumNavbar = ({ isLoggedIn, setIsLoggedIn }) => {
               {item.hasDropdown && (
                 <div className={`dropdown-menu ${item.id === "discounts" ? "large" : ""}`}>
                   {item.options.map((option, idx) => (
-                    <a key={idx} href="#" className="dropdown-item">
+                    <a key={idx} href="/discount-ab" className="dropdown-item">
                       <span className="dropdown-icon-left">{option.icon}</span>
                       {option.label}
                     </a>
@@ -799,7 +799,7 @@ const TotumNavbar = ({ isLoggedIn, setIsLoggedIn }) => {
           {navItems.map((item) => (
             <li key={item.id} className="mobile-nav-item">
               <a
-                href="#"
+                href="/new-discounts"
                 className="mobile-nav-link"
                 onClick={() =>
                   item.hasDropdown &&
@@ -819,7 +819,7 @@ const TotumNavbar = ({ isLoggedIn, setIsLoggedIn }) => {
                   className={`mobile-dropdown ${activeDropdown === item.id ? "open" : ""}`}
                 >
                   {item.options.map((option, idx) => (
-                    <a key={idx} href="#" className="mobile-dropdown-item">
+                    <a key={idx} href="/labels" className="mobile-dropdown-item">
                       <span className="dropdown-icon-left">{option.icon}</span>
                       {option.label}
                     </a>
