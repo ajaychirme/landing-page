@@ -42,7 +42,7 @@ const LatestNews = () => {
   ];
 
   return (
-    <div className="latest-news-section bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="latest-news-section bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center mb-8">
           <div className="inline-block bg-black text-white px-6 py-2 text-sm font-bold tracking-wider">
