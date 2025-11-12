@@ -12,7 +12,7 @@ import DealsToggleWrapper from "./DealsToggleWrapper.jsx";
 import WhoCanJoin from "./WhoCanJoin.jsx";
 import FAQSection from "./FAQSection.jsx";
 import PlanSelector from "./PlanSelector.jsx";
-import VerificationBanner from './VerificationBanner.jsx';
+import VerificationBanner from "./VerificationBanner.jsx";
 // import VerificationBanner1 from './VerificationBanner1.jsx';
 // import DealsSection from "./DealsSection.jsx";
 // import DiscountBanner from "./DiscountBanner.jsx";
@@ -53,40 +53,45 @@ function LandingPage() {
   return (
     <div>
       {/* Ticker Bar */}
-      <div
-        className="flex items-center justify-center text-white px-4 py-2 cursor-pointer font-bold italic relative overflow-hidden"
-        style={{
-          background: "linear-gradient(to right, #6a1a8c, #db00ff, #ff007f)",
-          minHeight: "40px",
-        }}
-      >
-        <span
-          className="absolute transition-opacity duration-1000 text-center px-2"
-          style={{
-            opacity: fade ? 1 : 0,
-            fontSize: "clamp(12px, 3.5vw, 18px)",
-            lineHeight: "1.3",
-            maxWidth: "95%",
-          }}
-        >
-          {spanText[index]}
-        </span>
-      </div>
+  
+<div className="sticky top-0 z-50">
+  {/* Gradient banner */}
+  <div
+    className="flex items-center justify-center text-white px-4 py-2 cursor-pointer font-bold italic relative overflow-hidden"
+    style={{
+      background: "linear-gradient(to right, #6a1a8c, #db00ff, #ff007f)",
+      minHeight: "40px",
+    }}
+  >
+    <span
+      className="absolute transition-opacity duration-1000 text-center px-2"
+      style={{
+        opacity: fade ? 1 : 0,
+        fontSize: "clamp(12px, 3.5vw, 18px)",
+        lineHeight: "1.3",
+        maxWidth: "95%",
+      }}
+    >
+      {spanText[index]}
+    </span>
+  </div>
 
-      <TotumNavbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+  {/* Navbar */}
+  <TotumNavbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+</div>
 
-   <DealsToggleWrapper isLoggedIn={isLoggedIn} />
 
+      <DealsToggleWrapper isLoggedIn={isLoggedIn} />
 
       {!isLoggedIn && <WhoCanJoin />}
-     { !isLoggedIn && <WhyTotum />}
-      <SSHightlighs isLoggedIn={isLoggedIn}/>
+      {!isLoggedIn && <WhyTotum />}
+      <SSHightlighs isLoggedIn={isLoggedIn} />
       <PlanSelector />
-       {isLoggedIn && <VerificationBanner/>}
-       {/* <VerificationBanner1/> */}
+      {isLoggedIn && <VerificationBanner />}
+      {/* <VerificationBanner1/> */}
       <LatestNews />
-      {isLoggedIn && <WhyTotum isLoggedIn={isLoggedIn}/>}
-      <FAQSection isLoggedIn={isLoggedIn}/>
+      {isLoggedIn && <WhyTotum isLoggedIn={isLoggedIn} />}
+      <FAQSection isLoggedIn={isLoggedIn} />
     </div>
   );
 }
