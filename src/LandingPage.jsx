@@ -13,13 +13,13 @@ import WhoCanJoin from "./WhoCanJoin.jsx";
 import FAQSection from "./FAQSection.jsx";
 import PlanSelector from "./PlanSelector.jsx";
 import VerificationBanner from './VerificationBanner.jsx';
-import VerificationBanner1 from './VerificationBanner1.jsx';
+// import VerificationBanner1 from './VerificationBanner1.jsx';
 // import DealsSection from "./DealsSection.jsx";
 // import DiscountBanner from "./DiscountBanner.jsx";
 // import NewBanner from "./NewBanner.jsx";
 // import CategoriesSection from "./CategoriesSection.jsx";
-import StudentDealsSection from "./StudentDealsSection.jsx";
-import StudentDealsSection1 from "./StudentDealsSection1.jsx";
+// import StudentDealsSection from "./StudentDealsSection.jsx";
+// import StudentDealsSection1 from "./StudentDealsSection1.jsx";
 
 import "./landingPage.css";
 

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./StudentDealsSection1.css";
-import { Sparkles, CheckCircle, ArrowRight } from "lucide-react";
+import { Sparkles } from "lucide-react";
 
 const StudentDealsSection1 = ({ isLoggedIn }) => {
   const deals = [
