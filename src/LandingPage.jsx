@@ -7,15 +7,19 @@ import TotumNavbar from "./TotumNavbar.jsx";
 import WhyTotum from "./WhyTotum.jsx";
 import SSHightlighs from "./SSHightlighs.jsx";
 import LatestNews from "./LatestNews.jsx";
+import DealsToggleWrapper from "./DealsToggleWrapper.jsx";
 // import PromoBanner1 from "./PromoBanner1.jsx";
 import WhoCanJoin from "./WhoCanJoin.jsx";
 import FAQSection from "./FAQSection.jsx";
 import PlanSelector from "./PlanSelector.jsx";
+import VerificationBanner from './VerificationBanner.jsx';
+import VerificationBanner1 from './VerificationBanner1.jsx';
 // import DealsSection from "./DealsSection.jsx";
 // import DiscountBanner from "./DiscountBanner.jsx";
 // import NewBanner from "./NewBanner.jsx";
-import StudentDealsSection from "./StudentDealsSection.jsx";
 // import CategoriesSection from "./CategoriesSection.jsx";
+import StudentDealsSection from "./StudentDealsSection.jsx";
+import StudentDealsSection1 from "./StudentDealsSection1.jsx";
 
 import "./landingPage.css";
 
@@ -71,12 +75,15 @@ function LandingPage() {
 
       <TotumNavbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
 
-      <StudentDealsSection isLoggedIn={isLoggedIn} />
+   <DealsToggleWrapper isLoggedIn={isLoggedIn} />
+
 
       {!isLoggedIn && <WhoCanJoin />}
      { !isLoggedIn && <WhyTotum />}
       <SSHightlighs isLoggedIn={isLoggedIn}/>
       <PlanSelector />
+       {isLoggedIn && <VerificationBanner/>}
+       {/* <VerificationBanner1/> */}
       <LatestNews />
       {isLoggedIn && <WhyTotum isLoggedIn={isLoggedIn}/>}
       <FAQSection isLoggedIn={isLoggedIn}/>

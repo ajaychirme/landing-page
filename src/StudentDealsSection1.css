@@ -1,0 +1,42 @@
+/* Clean black theme background — same as VerificationBanner1 (no animation) */
+.subtle-gradient-bg {
+  background-color: #000; /* pure black base */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Glowing orbs from VerificationBanner1 — static, soft blur */
+.subtle-gradient-bg::before,
+.subtle-gradient-bg::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.5;
+  z-index: 0;
+}
+
+/* Pink glow (top-left) */
+.subtle-gradient-bg::before {
+  top: 10%;
+  left: 10%;
+  width: 180px;
+  height: 180px;
+  background: rgba(236, 72, 153, 0.6); /* Tailwind pink-400 tone */
+}
+
+/* Yellow glow (bottom-right) */
+.subtle-gradient-bg::after {
+  bottom: 15%;
+  right: 15%;
+  width: 250px;
+  height: 250px;
+  background: rgba(253, 224, 71, 0.5); /* Tailwind yellow-300 tone */
+}
+
+/* Keep logged-in padding behavior */
+@media (max-width: 640px) {
+  .loggedIn-header {
+    padding-top: 2rem !important;
+  }
+}
