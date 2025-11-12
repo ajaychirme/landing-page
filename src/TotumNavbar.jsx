@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import brandingLogo from "./branding-image.svg";
 
 const TotumNavbar = ({ isLoggedIn, setIsLoggedIn }) => {
