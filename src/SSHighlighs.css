@@ -1,0 +1,26 @@
+/* SSHightlighs.css */
+@media (max-width: 1024px) {
+  .highlight {
+    margin-top: 48rem;
+  }
+}
+@media (max-width: 614px) {
+  .highlight {
+    margin-top: 49rem;
+  }
+}
+@media (max-width: 447px) {
+  .highlight {
+    margin-top: 52rem;
+  }
+}
+@media (max-width: 399px) {
+  .highlight {
+    margin-top: 54rem;
+  }
+}
+@media (max-width: 386px) {
+  .highlight {
+    margin-top: 56rem;
+  }
+}

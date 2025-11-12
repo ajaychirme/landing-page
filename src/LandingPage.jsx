@@ -73,12 +73,13 @@ function LandingPage() {
 
       <StudentDealsSection isLoggedIn={isLoggedIn} />
 
-      <WhoCanJoin />
-      <WhyTotum />
-      <SSHightlighs />
+      {!isLoggedIn && <WhoCanJoin />}
+     { !isLoggedIn && <WhyTotum />}
+      <SSHightlighs isLoggedIn={isLoggedIn}/>
       <PlanSelector />
       <LatestNews />
-      <FAQSection />
+      {isLoggedIn && <WhyTotum isLoggedIn={isLoggedIn}/>}
+      <FAQSection isLoggedIn={isLoggedIn}/>
     </div>
   );
 }

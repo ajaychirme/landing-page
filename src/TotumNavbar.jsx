@@ -632,8 +632,8 @@ const TotumNavbar = ({ isLoggedIn, setIsLoggedIn }) => {
 
   const communityOptions = [
     { icon: "🎉", label: "Giveaways" },
-    { icon: "💬", label: "Totum talks" },
-    { icon: "📺", label: "totum tv" },
+    { icon: "💬", label: "Totum Talks" },
+    { icon: "📺", label: "Totum TV" },
   ];
 
   const navItems = [
@@ -738,7 +738,7 @@ const TotumNavbar = ({ isLoggedIn, setIsLoggedIn }) => {
         </div>
 
         <div className="auth-buttons">
-          <button className="login-btn">LOGIN</button>
+        { !isLoggedIn && <button className="login-btn">LOGIN</button>}
 
           <button
             onClick={() => setIsLoggedIn(!isLoggedIn)}

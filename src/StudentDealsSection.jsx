@@ -26,9 +26,11 @@ const StudentDealsSection = ({isLoggedIn}) => {
   useEffect(()=>{console.log('hii',isLoggedIn)},[isLoggedIn])
   
   return (
+
+
     <div className="relative">
       {/* Extended Gradient Background Section */}
-      <section
+      {!isLoggedIn && <section
   className="
     text-white
     pt-12 sm:pt-16 md:pt-12
@@ -48,7 +50,9 @@ const StudentDealsSection = ({isLoggedIn}) => {
   <div className="hidden lg:block absolute bottom-20 left-1/4 w-40 h-40 rounded-full opacity-10 bg-white blur-3xl"></div>
 
   {/* Heading Section */}
-  <div className="text-center max-w-4xl mx-auto relative z-10 py-4 sm:py-6">
+  <div className={`text-center max-w-4xl mx-auto relative z-10 py-4 sm:py-6 ${
+    isLoggedIn ? "loggedIn-header" : ""
+  }`}>
     <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight mb-3 sm:mb-4 px-2">
       The UK's No.1 Discount Card for All
     </h1>
@@ -66,12 +70,47 @@ const StudentDealsSection = ({isLoggedIn}) => {
       </button>
     </div>
   </div>
-</section>
+</section>}
+
+{isLoggedIn && <section
+  className="text-white px-8 relative overflow-hidden"
+        style={{
+          height: "24rem", // Extended from 23rem to 35rem
+          background:
+            "linear-gradient(135deg, #3d4fb8 0%, #7b3fb8 35%, #c93f9e 70%, #ff4d8f 100%)",
+        }}
+      >
+        {/* Decorative Background Elements */}
+        <div className="absolute top-10 left-20 w-32 h-32 rounded-full opacity-10 bg-white blur-3xl"></div>
+        <div className="absolute top-40 right-32 w-24 h-24 rounded-full opacity-10 bg-white blur-2xl"></div>
+        <div className="absolute bottom-20 left-1/4 w-40 h-40 rounded-full opacity-10 bg-white blur-3xl"></div>
+  {/* Heading Section */}
+  <div className={`text-center max-w-4xl mx-auto relative z-10 py-4 sm:py-6 ${
+    isLoggedIn ? "pt-6 sm:pt-6" : ""
+  }`}>
+    <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight mb-3 sm:mb-4 px-2">
+      The UK's No.1 Discount Card for All
+    </h1>
+
+    <p className="text-sm sm:text-base md:text-lg text-white opacity-95 leading-relaxed px-4 sm:px-6 mt-3 sm:mt-4 md:mt-6">
+      Your new favourite student discount website with deals you won't find anywhere else
+    </p>
+
+    {!isLoggedIn && <div className="flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4 mt-6 sm:mt-8 px-4">
+      <button className="w-full sm:w-auto bg-white text-purple-700 font-bold px-6 sm:px-8 py-2.5 sm:py-3 rounded-full hover:bg-opacity-90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 text-sm sm:text-base whitespace-nowrap">
+        FIND OUT MORE
+      </button>
+      <button className="w-full sm:w-auto bg-pink-600 text-white font-bold px-6 sm:px-8 py-2.5 sm:py-3 rounded-full hover:bg-pink-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 text-sm sm:text-base whitespace-nowrap">
+        SIGN UP TODAY
+      </button>
+    </div>}
+  </div>
+</section>}
 
 
       {/* Cards Section - Positioned absolutely to maintain same position */}
       <div className="absolute top-72 left-0 right-0 px-8 pb-12 z-20">
-     { isLoggedIn && (<div className="flex flex-col lg:flex-row justify-center items-stretch gap-6 max-w-7xl mx-auto" style={{marginTop: '-7rem'}}>
+     { isLoggedIn && (<div className="flex flex-col lg:flex-row justify-center items-stretch gap-6 max-w-7xl mx-auto" style={{marginTop: '-8.5rem'}}>
           {/* Student Deals of the Day */}
           <div
             className="bg-white text-gray-900 rounded-2xl p-4 shadow-xl flex flex-col"

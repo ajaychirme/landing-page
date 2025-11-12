@@ -3,6 +3,14 @@
     background: linear-gradient(180deg, #fff 0%, #f8f9fa 100%);
     padding: 0px 20px;
     margin-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.faq-section-loggedin {
+    background: linear-gradient(180deg, #fff 0%, #f8f9fa 100%);
+    padding: 0px 20px;
+    margin-top: -3rem;
+    padding-bottom: 2rem;
 }
 
 .faq-container {

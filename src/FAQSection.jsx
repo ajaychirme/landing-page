@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './FAQSection.css';
 
-const FAQSection = () => {
+const FAQSection = ({isLoggedIn}) => {
   const [activeIndex, setActiveIndex] = useState(null);
 
   const faqs = [
@@ -36,7 +36,7 @@ const FAQSection = () => {
   };
 
   return (
-    <div className="faq-section">
+    <div className={isLoggedIn ? "faq-section-loggedin" : "faq-section"}>
       <div className="faq-container">
         {/* Header */}
         <div className="faq-header">

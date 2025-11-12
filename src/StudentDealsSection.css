@@ -22,3 +22,9 @@
     background-position: 0% 50%;
   }
 }
+
+@media (max-width: 640px) {
+    .loggedIn-header {
+        padding-top: 2rem !important;
+    }
+}
