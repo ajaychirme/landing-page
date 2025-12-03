@@ -1,5 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Menu, X, Github, Linkedin, Mail, Download, ExternalLink, ChevronDown, Sun, Moon, Code, Briefcase, Award, FolderGit2, ArrowRight, Sparkles, Zap, Target, TrendingUp, Users, Globe, CheckCircle } from 'lucide-react';
+import { Menu, X, Github, Linkedin, Mail, Download, ExternalLink, ChevronDown, Code, Briefcase, Award, FolderGit2, ArrowRight, Sparkles, Zap, Target, TrendingUp, Globe, CheckCircle } from 'lucide-react';
+import Pestocert from './assets/pesto1.png'
+import UltReactCert from './assets/ultimateReactUdemy.png'
+import CmpltWebDevBootcamp from './assets/udemyBootcamp.png'
+import MetaFECert from './assets/udemyBootcamp.png'
+import MetaBECert from './assets/udemyBootcamp.png'
+import resumeDoc from './assets/resume.pdf'
 
 const useTheme = () => {
   const [theme, setTheme] = useState('dark');
@@ -15,7 +21,6 @@ const useMousePosition = () => {
     const updatePosition = (e) => setPosition({ x: e.clientX, y: e.clientY });
     window.addEventListener('mousemove', updatePosition);
     return () => window.removeEventListener('mousemove', updatePosition);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return position;
 };
@@ -104,10 +109,34 @@ const ParticleBackground = () => {
       cancelAnimationFrame(animationId);
       window.removeEventListener('resize', handleResize);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   
   return <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none opacity-40" />;
+};
+
+const CertificateModal = ({ isOpen, onClose, certificate }) => {
+  if (!isOpen || !certificate) return null;
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm" onClick={onClose}>
+      <div className="relative max-w-6xl w-full max-h-[90vh] bg-gray-900 rounded-3xl overflow-hidden border border-cyan-500/30" onClick={(e) => e.stopPropagation()}>
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 z-10 p-3 rounded-full bg-red-500/80 hover:bg-red-600 transition-all duration-300 group"
+        >
+          <X className="text-white" size={24} />
+        </button>
+        
+        <div className="overflow-auto max-h-[90vh] p-4">
+          <img 
+            src={certificate.image} 
+            alt={certificate.title}
+            className="w-full h-auto rounded-2xl"
+          />
+        </div>
+      </div>
+    </div>
+  );
 };
 
 const Navbar = ({ theme, setTheme, activeSection }) => {
@@ -118,7 +147,6 @@ const Navbar = ({ theme, setTheme, activeSection }) => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   
   const navItems = [
@@ -146,7 +174,7 @@ const Navbar = ({ theme, setTheme, activeSection }) => {
             onClick={() => scrollToSection('home')}
           >
             <span className="bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-              AC
+              SG
             </span>
             <div className="absolute -inset-2 bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-pink-500/20 blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-full" />
           </div>
@@ -168,14 +196,6 @@ const Navbar = ({ theme, setTheme, activeSection }) => {
                 <span className="relative z-10">{label}</span>
               </button>
             ))}
-            <button
-              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              className="ml-4 p-3 rounded-full bg-gradient-to-r from-cyan-500/10 to-purple-500/10 backdrop-blur-xl border border-cyan-500/20 hover:scale-110 transition-all duration-300 group"
-            >
-              <div className="relative">
-                {theme === 'dark' ? <Sun className="text-yellow-400" size={20} /> : <Moon className="text-purple-400" size={20} />}
-              </div>
-            </button>
           </div>
           
           <button
@@ -219,8 +239,17 @@ const Hero = () => {
       setCurrentRole((prev) => (prev + 1) % roles.length);
     }, 3000);
     return () => clearInterval(interval);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line
   }, []);
+
+  const downloadResume = () => {
+    const link = document.createElement('a');
+    link.href = resumeDoc;
+    link.download = 'Saurabh-Galgale-Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
   
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-black">
@@ -247,7 +276,7 @@ const Hero = () => {
             <div className="absolute inset-1 rounded-full bg-black" />
             <div className="absolute inset-2 rounded-full bg-gradient-to-br from-cyan-500/30 to-purple-500/30 backdrop-blur-xl flex items-center justify-center transform group-hover:scale-110 transition-all duration-700 group-hover:rotate-6">
               <span className="text-7xl font-black bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
-                AC
+                SG
               </span>
             </div>
             <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-500 to-purple-500 blur-2xl opacity-50 group-hover:opacity-100 transition-all duration-700 animate-pulse" />
@@ -261,7 +290,7 @@ const Hero = () => {
             
             <h1 className="text-6xl sm:text-8xl lg:text8xl font-black mb-6 tracking-tight">
               <span className="inline-block bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-                Ajay Chirme
+                Saurabh Galgale
               </span>
             </h1>
             
@@ -308,7 +337,10 @@ const Hero = () => {
                 </span>
               </a>
               
-              <button className="group relative px-10 py-5 rounded-full overflow-hidden font-bold text-lg backdrop-blur-xl border-2 border-purple-500/50 hover:border-pink-500/50 transition-all duration-500 hover:scale-110">
+              <button 
+                onClick={downloadResume}
+                className="group relative px-10 py-5 rounded-full overflow-hidden font-bold text-lg backdrop-blur-xl border-2 border-purple-500/50 hover:border-pink-500/50 transition-all duration-500 hover:scale-110"
+              >
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity" />
                 <span className="relative flex items-center space-x-2 text-white">
                   <Download size={20} />
@@ -319,9 +351,9 @@ const Hero = () => {
             
             <div className="flex justify-center space-x-6 pt-12">
               {[
-                { icon: Mail, href: 'mailto:ajaychirme@gmail.com' },
-                { icon: Github, href: 'https://github.com/ajaychirme' },
-                { icon: Linkedin, href: 'https://linkedin.com/in/ajaychirme' }
+                { icon: Mail, href: 'mailto:galgalesaurabh18@gmail.com' },
+                { icon: Github, href: 'https://github.com/Saurabh-Galgale' },
+                { icon: Linkedin, href: 'https://www.linkedin.com/in/saurabh-galgale/' }
               ].map(({ icon: Icon, href }, i) => (
                 <a
                   key={i}
@@ -351,15 +383,14 @@ const About = () => {
   
   const stats = [
     { value: 4.5, label: 'Years Experience', icon: TrendingUp },
-    { value: 50, label: 'Projects', icon: Target },
-    { value: 10, label: 'K+ Users', icon: Users },
+    { value: '6+', label: 'Live Projects', icon: Target },
     { value: 7, label: 'Certificates', icon: Award }
   ];
   
   const timeline = [
-    { year: '2020', title: 'Started at FoodMarketHub', desc: 'Associate Frontend Developer - Singapore', icon: Code },
+    { year: '2021', title: 'Started at FoodMarketHub', desc: 'Associate Frontend Developer - Singapore', icon: Code },
     { year: '2022', title: 'Promoted to Frontend Developer', desc: 'Led multiple high-impact projects', icon: TrendingUp },
-    { year: '2023', title: 'Senior Developer', desc: 'Architecting scalable solutions', icon: Zap },
+    { year: '2024', title: 'Senior Developer', desc: 'Architecting scalable solutions', icon: Zap },
     { year: '2024', title: 'Pesto Tech Certification', desc: 'Advanced Full-stack Program', icon: Award }
   ];
   
@@ -561,13 +592,19 @@ const Experience = () => {
   const [ref, inView] = useInView();
   
   const achievements = [
-    'Built scalable React applications serving 10,000+ B2B users across Southeast Asia',
-    'Optimized application performance, achieving 40% faster load times and 95+ Lighthouse scores',
-    'Architected reusable component libraries reducing development time by 30%',
-    'Collaborated with cross-functional remote teams across 5+ time zones',
-    'Integrated complex REST APIs and WebSocket implementations for real-time features',
-    'Mentored junior developers and established coding standards for the team',
-    'Led migration from legacy codebase to modern React + TypeScript stack'
+    'Led the front-end development initiatives, mentoring junior developers and overseeing code reviews to ensure adherence to best practices and coding standards',
+    'Architected complex state management workflows using Redux Toolkit (RTK) and Vue.js Composition API, improving component reusability and data flow efficiency',
+    'Enhanced overall platform stability by proactively identifying and resolving critical production issues within tight deadlines',
+    'Implemented advanced optimization strategies including lazy loading, memoization, and bundle size reduction, achieving noticeable improvements in load times and performance',
+    'Collaborated closely with stakeholders to translate business requirements into robust technical implementations, resulting in improved customer satisfaction and user engagement metrics'
+  ];
+
+  const achievements1 = [
+    'Designed, developed, and maintained key product features for a modern Food and Business Management Platform, connecting suppliers and restaurants to streamline inventory control, minimize waste, and facilitate regional trade',
+    'Built and optimized interactive, data-driven user interfaces using React.js, Redux, and Vue.js (Composition API)',
+    'Collaborated cross-functionally with product, design, and backend teams to deliver scalable and maintainable solutions aligned with business goals',
+    'Utilized browser developer tools for real-time debugging, performance profiling, and troubleshooting to ensure seamless application functionality',
+    'Contributed to refactoring legacy components, improving code maintainability and application speed by 25%'
   ];
   
   return (
@@ -599,7 +636,7 @@ const Experience = () => {
                 <div className="flex flex-wrap justify-between items-start mb-6">
                   <div>
                     <h3 className="text-3xl font-black text-white mb-2">
-                      Senior Frontend Developer
+                      Senior Software Engineer
                     </h3>
                     <p className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-2">
                       FoodMarketHub
@@ -610,7 +647,7 @@ const Experience = () => {
                     </p>
                   </div>
                   <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 px-6 py-3 rounded-2xl border border-purple-500/30">
-                    <span className="text-purple-400 font-bold">2020 - Present (4.5 years)</span>
+                    <span className="text-purple-400 font-bold">March 2024 - Present</span>
                   </div>
                 </div>
                 
@@ -628,7 +665,55 @@ const Experience = () => {
                 </div>
                 
                 <div className="flex flex-wrap gap-3">
-                  {['React', 'Redux', 'TypeScript', 'Node.js', 'MongoDB', 'REST APIs', 'Git', 'Agile'].map((tech) => (
+                  {['React', 'Redux', 'TypeScript', 'Vue.js', 'Node.js', 'REST APIs', 'Git', 'Agile'].map((tech) => (
+                    <span key={tech} className="px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/30 text-cyan-400 font-semibold text-sm">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="max-w-5xl mx-auto mt-6">
+            <div className="relative p-10 rounded-3xl bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-xl border border-purple-500/30 hover:border-cyan-500/50 transition-all duration-500 hover:scale-105 shadow-2xl shadow-purple-500/20">
+              <div className="absolute -top-6 -right-6 w-32 h-32 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full blur-3xl opacity-50" />
+              <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full blur-3xl opacity-50" />
+              
+              <div className="relative">
+                <div className="flex flex-wrap justify-between items-start mb-6">
+                  <div>
+                    <h3 className="text-3xl font-black text-white mb-2">
+                      Software Engineer
+                    </h3>
+                    <p className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-2">
+                      FoodMarketHub
+                    </p>
+                    <p className="text-gray-400 flex items-center space-x-2">
+                      <Globe size={16} />
+                      <span>Singapore (Remote)</span>
+                    </p>
+                  </div>
+                  <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 px-6 py-3 rounded-2xl border border-purple-500/30">
+                    <span className="text-purple-400 font-bold">August 2021 - March 2024</span>
+                  </div>
+                </div>
+                
+                <div className="space-y-4 mb-8">
+                  {achievements1.map((achievement, i) => (
+                    <div key={i} className="flex items-start space-x-4 group">
+                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-r from-cyan-500 to-purple-500 flex items-center justify-center group-hover:scale-125 transition-transform">
+                        <CheckCircle className="text-white" size={16} />
+                      </div>
+                      <p className="text-gray-300 leading-relaxed text-lg flex-1">
+                        {achievement}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+                
+                <div className="flex flex-wrap gap-3">
+                  {['React', 'Redux', 'Vue.js', 'JavaScript', 'HTML/CSS', 'MongoDB', 'Git', 'Agile'].map((tech) => (
                     <span key={tech} className="px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/30 text-cyan-400 font-semibold text-sm">
                       {tech}
                     </span>
@@ -648,40 +733,40 @@ const Projects = () => {
   
   const projects = [
     {
-      title: 'E-Commerce Platform',
-      desc: 'Full-stack MERN application with real-time inventory management, Stripe payment integration, and comprehensive admin dashboard with analytics',
-      tech: ['React', 'Node.js', 'MongoDB', 'Stripe', 'Redux', 'Express'],
-      icon: '🛍️',
+      title: 'Personal Portfolio',
+      desc: 'Built a responsive portfolio using React, JS, HTML, and Tailwind CSS with optimized components, reusable UI patterns, and mobile-first design',
+      tech: ['React', 'JavaScript', 'Tailwind CSS', 'HTML', 'CSS'],
+      icon: '🌐',
       gradient: 'from-cyan-500 to-blue-500',
-      live: 'https://project1.vercel.app',
-      github: 'https://github.com/ajaychirme/project1'
+      live: 'https://saurabhgalgale.vercel.app/',
+      github: 'https://github.com/Saurabh-Galgale'
     },
     {
-      title: 'Task Management SaaS',
-      desc: 'Collaborative task manager with real-time updates via WebSockets, drag-drop functionality, and advanced team collaboration features',
-      tech: ['Next.js', 'TypeScript', 'PostgreSQL', 'Socket.io', 'Prisma'],
-      icon: '📋',
+      title: 'Vidya Voult',
+      desc: 'Built a full-stack educational platform using React.js, Node.js, Express.js, and MongoDB, enabling course uploads and interactive learning. Implemented JWT authentication and responsive UI',
+      tech: ['React', 'Node.js', 'Express', 'MongoDB', 'JWT', 'Tailwind CSS'],
+      icon: '📚',
       gradient: 'from-purple-500 to-pink-500',
-      live: 'https://project2.vercel.app',
-      github: 'https://github.com/ajaychirme/project2'
+      live: 'https://github.com/Saurabh-Galgale',
+      github: 'https://github.com/Saurabh-Galgale'
     },
     {
-      title: 'Analytics Dashboard',
-      desc: 'Real-time data visualization dashboard with interactive charts, advanced filtering, and CSV/PDF export capabilities',
-      tech: ['React', 'D3.js', 'Express', 'MongoDB', 'Redis'],
-      icon: '📊',
+      title: 'Inventory Management',
+      desc: 'Built a secure full-stack system for item and stock tracking using React, Node.js/Express, and MongoDB, with responsive UI and optimized CRUD workflows',
+      tech: ['React', 'Node.js', 'Express', 'MongoDB', 'Material-UI'],
+      icon: '📦',
       gradient: 'from-pink-500 to-orange-500',
-      live: 'https://project3.vercel.app',
-      github: 'https://github.com/ajaychirme/project3'
+      live: 'https://github.com/Saurabh-Galgale',
+      github: 'https://github.com/Saurabh-Galgale'
     },
     {
-      title: 'Social Media App',
-      desc: 'Instagram-like social platform with posts, stories, real-time chat, push notifications, and image optimization',
-      tech: ['React Native', 'Firebase', 'Redux', 'Node.js', 'AWS S3'],
-      icon: '📱',
+      title: 'Employee Management System',
+      desc: 'Developed a CRUD-based employee record management tool using React with controlled forms, reusable components, and responsive UI',
+      tech: ['React', 'JavaScript', 'CSS', 'Local Storage'],
+      icon: '👥',
       gradient: 'from-green-500 to-teal-500',
-      live: 'https://project4.vercel.app',
-      github: 'https://github.com/ajaychirme/project4'
+      live: 'https://github.com/Saurabh-Galgale',
+      github: 'https://github.com/Saurabh-Galgale'
     }
   ];
   
@@ -767,6 +852,7 @@ const Projects = () => {
 const Certificates = () => {
   const [ref, inView] = useInView();
   const [openIndex, setOpenIndex] = useState(null);
+  const [modalCert, setModalCert] = useState(null);
   
   const certificates = [
     {
@@ -775,53 +861,60 @@ const Certificates = () => {
       desc: 'Comprehensive full-stack program covering advanced React, Node.js, system design, and scalable architecture patterns',
       skills: ['React', 'Node.js', 'System Design', 'Microservices', 'Architecture'],
       icon: '🎓',
-      gradient: 'from-cyan-500 to-blue-500'
+      gradient: 'from-cyan-500 to-blue-500',
+      image: Pestocert
+    },
+    {
+      title: 'The Ultimate React Course 2024',
+      issuer: 'Udemy',
+      desc: 'Comprehensive React course covering React, Next.js, Redux and modern frontend development practices',
+      skills: ['React', 'Next.js', 'Redux', 'JavaScript', 'Hooks'],
+      icon: '⚛️',
+      gradient: 'from-blue-500 to-purple-500',
+      image: UltReactCert
+    },
+    {
+      title: 'The Complete 2023 Web Development Bootcamp',
+      issuer: 'Udemy',
+      desc: 'Full-stack web development bootcamp covering HTML, CSS, JavaScript, Node.js, React, and MongoDB',
+      skills: ['HTML', 'CSS', 'JavaScript', 'Node.js', 'React', 'MongoDB'],
+      icon: '🔧',
+      gradient: 'from-purple-500 to-pink-500',
+      image: CmpltWebDevBootcamp
     },
     {
       title: 'Meta Frontend Developer Certificate',
       issuer: 'Meta',
-      desc: 'Professional certificate covering React, responsive design, UI/UX principles, and modern frontend development practices',
-      skills: ['React', 'HTML/CSS', 'JavaScript', 'UI/UX', 'Responsive Design'],
-      icon: '⚛️',
-      gradient: 'from-blue-500 to-purple-500'
+      desc: 'Professional certificate covering advanced frontend technologies and best practices from Meta',
+      skills: ['React', 'JavaScript', 'HTML', 'CSS', 'Version Control'],
+      icon: '📝',
+      gradient: 'from-pink-500 to-orange-500',
+      image: MetaFECert
     },
     {
       title: 'Meta Backend Developer Certificate',
       issuer: 'Meta',
-      desc: 'Backend specialization covering APIs, databases, authentication, security, and server-side development',
+      desc: 'Backend specialization covering APIs, databases, authentication, and server-side development',
       skills: ['Node.js', 'APIs', 'Databases', 'Authentication', 'Security'],
-      icon: '🔧',
-      gradient: 'from-purple-500 to-pink-500'
-    },
-    {
-      title: 'Meta Version Control Certificate',
-      issuer: 'Meta',
-      desc: 'Git and GitHub mastery including branching strategies, collaboration workflows, CI/CD, and best practices',
-      skills: ['Git', 'GitHub', 'CI/CD', 'Collaboration', 'DevOps'],
-      icon: '📝',
-      gradient: 'from-pink-500 to-orange-500'
-    },
-    {
-      title: 'Modern React with Redux',
-      issuer: 'Udemy',
-      desc: 'Advanced React patterns, Redux state management, hooks, context API, and performance optimization techniques',
-      skills: ['React', 'Redux', 'Hooks', 'Performance', 'State Management'],
       icon: '⚡',
-      gradient: 'from-orange-500 to-yellow-500'
-    },
-    {
-      title: 'Advanced Frontend Development',
-      issuer: 'Udemy',
-      desc: 'Deep dive into modern frontend architecture, design patterns, testing, and industry best practices',
-      skills: ['Architecture', 'Design Patterns', 'TypeScript', 'Testing', 'Best Practices'],
-      icon: '🚀',
-      gradient: 'from-green-500 to-teal-500'
+      gradient: 'from-orange-500 to-yellow-500',
+      image: {MetaBECert}
     }
   ];
+
+  const openModal = (cert) => {
+    setModalCert(cert);
+  };
+
+  const closeModal = () => {
+    setModalCert(null);
+  };
   
   return (
     <section id="certificates" className="py-32 relative overflow-hidden bg-gradient-to-b from-black via-gray-900 to-black">
       <div className="absolute inset-0 opacity-20" style={{backgroundImage: "url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyMzYsMTI1LDQ5LDAuMSkiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')"}} />
+      
+      <CertificateModal isOpen={modalCert !== null} onClose={closeModal} certificate={modalCert} />
       
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div ref={ref} className={`transition-all duration-1000 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
@@ -829,74 +922,93 @@ const Certificates = () => {
           <div className="text-center mb-20">
             <div className="inline-flex items-center space-x-2 px-6 py-3 rounded-full bg-gradient-to-r from-yellow-500/10 to-orange-500/10 backdrop-blur-xl border border-yellow-500/30 mb-6">
               <Award className="text-yellow-400" size={18} />
-              <span className="text-sm font-semibold text-yellow-400">CREDENTIALS & ACHIEVEMENTS</span>
+
+              <span className="text-sm font-semibold text-yellow-400">CERTIFICATIONS & ACHIEVEMENTS</span>
             </div>
             <h2 className="text-5xl sm:text-7xl font-black mb-6">
-              <span className="bg-gradient-to-r from-yellow-400 via-orange-500 to-pink-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 bg-clip-text text-transparent">
                 Certificates
               </span>
             </h2>
-            <div className="w-32 h-1.5 bg-gradient-to-r from-yellow-500 via-orange-500 to-pink-500 mx-auto rounded-full" />
+            <div className="w-32 h-1.5 bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 mx-auto rounded-full" />
           </div>
           
           <div className="space-y-6">
-            {certificates.map((cert, i) => (
-              <div
-                key={i}
-                className="group rounded-3xl bg-gradient-to-br from-gray-900 to-black backdrop-blur-xl border border-gray-800 hover:border-cyan-500/50 transition-all duration-500 overflow-hidden"
-              >
-                <button
-                  onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                  className="w-full p-8 flex items-center justify-between text-left"
-                >
-                  <div className="flex items-center space-x-6">
-                    <div className={`text-6xl p-4 rounded-2xl bg-gradient-to-br ${cert.gradient} bg-opacity-10`}>
-                      {cert.icon}
-                    </div>
-                    <div>
-                      <h3 className="text-2xl font-black text-white mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-cyan-400 group-hover:to-purple-500 transition-all">
-                        {cert.title}
-                      </h3>
-                      <p className={`text-lg font-bold bg-gradient-to-r ${cert.gradient} bg-clip-text text-transparent`}>
-                        {cert.issuer}
-                      </p>
-                    </div>
-                  </div>
-                  <ChevronDown
-                    className={`text-gray-400 transition-transform duration-300 ${
-                      openIndex === i ? 'rotate-180 text-cyan-400' : ''
-                    }`}
-                    size={28}
-                  />
-                </button>
-                
-                <div
-                  className={`transition-all duration-500 overflow-hidden ${
-                    openIndex === i ? 'max-h-96' : 'max-h-0'
-                  }`}
-                >
-                  <div className="px-8 pb-8 space-y-6">
-                    <p className="text-gray-300 text-lg leading-relaxed">
-                      {cert.desc}
-                    </p>
-                    
-                    <div className="flex flex-wrap gap-3">
-                      {cert.skills.map((skill) => (
-                        <span key={skill} className="px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/30 text-cyan-400 font-semibold text-sm">
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-                    
-                    <button className="flex items-center space-x-2 px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-500 text-white font-bold hover:shadow-xl hover:shadow-purple-500/50 transition-all duration-300">
-                      <ExternalLink size={18} />
-                      <span>View Credential</span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ))}
+  {certificates.map((cert, i) => (
+    <div
+      key={i}
+      onClick={() => setOpenIndex(openIndex === i ? null : i)}   // ← makes whole card clickable
+      className="group relative rounded-3xl overflow-hidden bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-xl border border-gray-800 hover:border-orange-500/50 transition-all duration-500 cursor-pointer"
+    >
+      <div
+        className={`absolute inset-0 bg-gradient-to-br ${cert.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-700`}
+      />
+
+      <div className="relative p-8">
+        <div className="flex items-start justify-between mb-6">
+          <div className="flex items-center space-x-4">
+            <div className="text-5xl group-hover:scale-125 transition-transform duration-500">
+              {cert.icon}
+            </div>
+            <div>
+              <h3 className="text-2xl font-black text-white mb-1 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-yellow-400 group-hover:to-orange-500 transition-all">
+                {cert.title}
+              </h3>
+              <p className="text-orange-400 font-semibold">{cert.issuer}</p>
+            </div>
           </div>
+
+          {/* prevent double toggle when clicking the arrow */}
+          <button
+            onClick={(e) => {
+              e.stopPropagation();     // ← stops triggering outer div
+              setOpenIndex(openIndex === i ? null : i);
+            }}
+            className="p-3 rounded-full bg-gray-800/50 hover:bg-orange-500/20 border border-gray-700 hover:border-orange-500/50 transition-all duration-300"
+          >
+            <ChevronDown
+              className={`text-orange-400 transition-transform duration-300 ${
+                openIndex === i ? "rotate-180" : ""
+              }`}
+              size={20}
+            />
+          </button>
+        </div>
+
+        {openIndex === i && (
+          <div className="space-y-6 animate-fadeIn">
+            <p className="text-gray-300 text-lg leading-relaxed">
+              {cert.desc}
+            </p>
+
+            <div className="flex flex-wrap gap-2">
+              {cert.skills.map((skill) => (
+                <span
+                  key={skill}
+                  className="px-4 py-2 rounded-full bg-gradient-to-r from-orange-500/10 to-yellow-500/10 border border-orange-500/30 text-orange-400 font-semibold text-sm"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+
+            <button
+              onClick={(e) => {
+                e.stopPropagation();  // ← prevents closing when clicking inside
+                openModal(cert);
+              }}
+              className="flex items-center space-x-2 px-6 py-3 rounded-xl bg-gradient-to-r from-orange-500 to-yellow-500 text-white font-bold hover:shadow-xl hover:shadow-orange-500/50 transition-all duration-300"
+            >
+              <Award size={18} />
+              <span>View Certificate</span>
+            </button>
+          </div>
+        )}
+      </div>
+    </div>
+  ))}
+</div>
+
         </div>
       </div>
     </section>
@@ -906,15 +1018,21 @@ const Certificates = () => {
 const Contact = () => {
   const [ref, inView] = useInView();
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
   
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    setIsSubmitting(true);
+    
+    // Simulate form submission
     setTimeout(() => {
-      setSubmitted(false);
+      setSubmitStatus('success');
+      setIsSubmitting(false);
       setFormData({ name: '', email: '', message: '' });
-    }, 3000);
+      
+      setTimeout(() => setSubmitStatus(null), 5000);
+    }, 2000);
   };
   
   const handleChange = (e) => {
@@ -922,10 +1040,9 @@ const Contact = () => {
   };
   
   const contactInfo = [
-    { icon: Mail, label: 'Email', value: 'ajaychirme@gmail.com', href: 'mailto:ajaychirme@gmail.com', gradient: 'from-cyan-500 to-blue-500' },
-    { icon: Github, label: 'GitHub', value: 'github.com/ajaychirme', href: 'https://github.com/ajaychirme', gradient: 'from-purple-500 to-pink-500' },
-    { icon: Linkedin, label: 'LinkedIn', value: 'linkedin.com/in/ajaychirme', href: 'https://linkedin.com/in/ajaychirme', gradient: 'from-pink-500 to-orange-500' },
-    { icon: Globe, label: 'Location', value: 'India / Remote (Europe TZ)', href: null, gradient: 'from-green-500 to-teal-500' }
+    { icon: Mail, label: 'Email', value: 'galgalesaurabh18@gmail.com', href: 'mailto:galgalesaurabh18@gmail.com' },
+    { icon: Github, label: 'GitHub', value: 'github.com/Saurabh-Galgale', href: 'https://github.com/Saurabh-Galgale' },
+    { icon: Linkedin, label: 'LinkedIn', value: 'linkedin.com/in/saurabh-galgale', href: 'https://www.linkedin.com/in/saurabh-galgale/' }
   ];
   
   return (
@@ -935,149 +1052,139 @@ const Contact = () => {
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
       </div>
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div ref={ref} className={`transition-all duration-1000 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
           
           <div className="text-center mb-20">
             <div className="inline-flex items-center space-x-2 px-6 py-3 rounded-full bg-gradient-to-r from-cyan-500/10 to-purple-500/10 backdrop-blur-xl border border-cyan-500/30 mb-6">
               <Mail className="text-cyan-400" size={18} />
-              <span className="text-sm font-semibold text-cyan-400">LET'S CONNECT</span>
+              <span className="text-sm font-semibold text-cyan-400">GET IN TOUCH</span>
             </div>
             <h2 className="text-5xl sm:text-7xl font-black mb-6">
               <span className="bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-                Get In Touch
+                Let's Connect
               </span>
             </h2>
             <div className="w-32 h-1.5 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 mx-auto rounded-full" />
-            <p className="text-gray-400 text-xl mt-6 max-w-2xl mx-auto">
-              Ready to work on amazing projects together. Let's create something extraordinary!
+            <p className="text-xl text-gray-400 mt-6 max-w-2xl mx-auto">
+              Open to exciting remote opportunities worldwide. Let's build something amazing together!
             </p>
           </div>
           
           <div className="grid lg:grid-cols-2 gap-12">
-            
-            {/* Contact Info Cards */}
-            <div className="space-y-6">
-              <div className="p-8 rounded-3xl bg-gradient-to-br from-gray-900 to-black backdrop-blur-xl border border-gray-800">
-                <h3 className="text-3xl font-black text-white mb-4">
-                  Let's work together
-                </h3>
-                <p className="text-gray-400 text-lg leading-relaxed mb-6">
-                  I'm actively seeking remote opportunities in <span className="text-cyan-400 font-semibold">US, UK, Canada, and Europe</span>. 
-                  Open to full-time positions, contract work, and interesting projects.
-                </p>
-                <div className="flex items-center space-x-2 text-green-400">
-                  <div className="w-3 h-3 rounded-full bg-green-400 animate-pulse" />
-                  <span className="font-semibold">Available for immediate start</span>
+            {/* Contact Info */}
+            <div className="space-y-8">
+              <div className="p-8 rounded-3xl bg-gradient-to-br from-gray-900/50 to-black/50 backdrop-blur-xl border border-gray-800">
+                <h3 className="text-2xl font-bold text-white mb-6">Contact Information</h3>
+                <div className="space-y-6">
+                  {contactInfo.map(({ icon: Icon, label, value, href }) => (
+                    <a
+                      key={label}
+                      href={href}
+                      target={href.startsWith('http') ? '_blank' : undefined}
+                      rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                      className="flex items-center space-x-4 group cursor-pointer"
+                    >
+                      <div className="w-12 h-12 rounded-full bg-gradient-to-r from-cyan-500 to-purple-500 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <Icon className="text-white" size={20} />
+                      </div>
+                      <div>
+                        <p className="text-sm text-gray-400">{label}</p>
+                        <p className="text-white font-semibold group-hover:text-cyan-400 transition-colors">
+                          {value}
+                        </p>
+                      </div>
+                    </a>
+                  ))}
                 </div>
               </div>
               
-              <div className="space-y-4">
-                {contactInfo.map((item, i) => (
-                  item.href ? (
-                    <a
-                      key={i}
-                      href={item.href}
-                      target={item.href.startsWith('http') ? '_blank' : undefined}
-                      rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                      className="group flex items-center space-x-4 p-6 rounded-2xl bg-gradient-to-br from-gray-900 to-black backdrop-blur-xl border border-gray-800 hover:border-cyan-500/50 transition-all duration-500 hover:scale-105"
-                    >
-                      <div className={`p-4 rounded-xl bg-gradient-to-br ${item.gradient} bg-opacity-10 group-hover:scale-110 transition-transform`}>
-                        <item.icon className={`bg-gradient-to-r ${item.gradient} bg-clip-text text-transparent`} size={24} />
-                      </div>
-                      <div className="flex-1">
-                        <div className="text-sm text-gray-500 font-medium">{item.label}</div>
-                        <div className="text-white font-semibold">{item.value}</div>
-                      </div>
-                      <ArrowRight className="text-gray-600 group-hover:text-cyan-400 group-hover:translate-x-2 transition-all" size={20} />
-                    </a>
-                  ) : (
-                    <div
-                      key={i}
-                      className="flex items-center space-x-4 p-6 rounded-2xl bg-gradient-to-br from-gray-900 to-black backdrop-blur-xl border border-gray-800"
-                    >
-                      <div className={`p-4 rounded-xl bg-gradient-to-br ${item.gradient} bg-opacity-10`}>
-                        <item.icon className={`bg-gradient-to-r ${item.gradient} bg-clip-text text-transparent`} size={24} />
-                      </div>
-                      <div>
-                        <div className="text-sm text-gray-500 font-medium">{item.label}</div>
-                        <div className="text-white font-semibold">{item.value}</div>
-                      </div>
+              <div className="p-8 rounded-3xl bg-gradient-to-br from-cyan-500/5 to-purple-500/5 backdrop-blur-xl border border-cyan-500/20">
+                <h3 className="text-2xl font-bold text-white mb-4">Available For</h3>
+                <div className="space-y-3">
+                  {['Full-time Remote Positions', 'Freelance Projects', 'Technical Consulting', 'Open Source Collaboration'].map((item) => (
+                    <div key={item} className="flex items-center space-x-3">
+                      <CheckCircle className="text-cyan-400" size={20} />
+                      <span className="text-gray-300">{item}</span>
                     </div>
-                  )
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
             
             {/* Contact Form */}
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 rounded-3xl blur-2xl opacity-20" />
-              <div className="relative p-8 rounded-3xl bg-gradient-to-br from-gray-900 to-black backdrop-blur-xl border border-gray-800">
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div>
-                    <label className="block text-sm font-bold text-gray-400 mb-2">
-                      Your Name
-                    </label>
-                    <input
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-6 py-4 bg-gray-900/50 border border-gray-800 rounded-xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition-all text-white placeholder-gray-600"
-                      placeholder="John Doe"
-                    />
+            <div className="p-8 rounded-3xl bg-gradient-to-br from-gray-900/50 to-black/50 backdrop-blur-xl border border-gray-800">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <label className="block text-sm font-semibold text-gray-300 mb-2">
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 rounded-xl bg-black/50 border border-gray-700 text-white placeholder-gray-500 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/50 transition-all"
+                    placeholder="Your name"
+                  />
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-semibold text-gray-300 mb-2">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 rounded-xl bg-black/50 border border-gray-700 text-white placeholder-gray-500 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/50 transition-all"
+                    placeholder="your@email.com"
+                  />
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-semibold text-gray-300 mb-2">
+                    Message
+                  </label>
+                  <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                    rows={5}
+                    className="w-full px-4 py-3 rounded-xl bg-black/50 border border-gray-700 text-white placeholder-gray-500 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/50 transition-all resize-none"
+                    placeholder="Your message..."
+                  />
+                </div>
+                
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full py-4 rounded-xl bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 text-white font-bold text-lg hover:shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
+                >
+                  {isSubmitting ? (
+                    <>
+                      <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                      <span>Sending...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Mail size={20} />
+                      <span>Send Message</span>
+                    </>
+                  )}
+                </button>
+                
+                {submitStatus === 'success' && (
+                  <div className="flex items-center space-x-2 p-4 rounded-xl bg-green-500/10 border border-green-500/30 text-green-400">
+                    <CheckCircle size={20} />
+                    <span>Message sent successfully!</span>
                   </div>
-                  
-                  <div>
-                    <label className="block text-sm font-bold text-gray-400 mb-2">
-                      Email Address
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-6 py-4 bg-gray-900/50 border border-gray-800 rounded-xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition-all text-white placeholder-gray-600"
-                      placeholder="john@example.com"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label className="block text-sm font-bold text-gray-400 mb-2">
-                      Your Message
-                    </label>
-                    <textarea
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      required
-                      rows="5"
-                      className="w-full px-6 py-4 bg-gray-900/50 border border-gray-800 rounded-xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition-all resize-none text-white placeholder-gray-600"
-                      placeholder="Tell me about your project or opportunity..."
-                    />
-                  </div>
-                  
-                  <button
-                    type="submit"
-                    disabled={submitted}
-                    className="w-full py-5 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 text-white font-black text-lg rounded-xl shadow-2xl shadow-purple-500/50 hover:shadow-cyan-500/50 hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    {submitted ? (
-                      <span className="flex items-center justify-center space-x-2">
-                        <CheckCircle size={24} />
-                        <span>Message Sent Successfully!</span>
-                      </span>
-                    ) : (
-                      <span className="flex items-center justify-center space-x-2">
-                        <Zap size={24} />
-                        <span>Send Message</span>
-                      </span>
-                    )}
-                  </button>
-                </form>
-              </div>
+                )}
+              </form>
             </div>
           </div>
         </div>
@@ -1088,30 +1195,36 @@ const Contact = () => {
 
 const Footer = () => {
   return (
-    <footer className="py-12 bg-gradient-to-b from-black to-gray-950 border-t border-gray-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className="relative py-12 bg-black border-t border-gray-800">
+      <div className="absolute inset-0 bg-gradient-to-t from-cyan-500/5 to-transparent" />
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
           <div className="text-center md:text-left">
-            <div className="text-2xl font-black bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent mb-2">
-              Ajay Chirme
+            <div className="text-3xl font-black mb-2">
+              <span className="bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+                Saurabh Galgale
+              </span>
             </div>
-            <p className="text-gray-500">Frontend Developer & MERN Engineer</p>
+            <p className="text-gray-400">
+              Building the future, one line of code at a time
+            </p>
           </div>
           
           <div className="flex space-x-6">
             {[
-              { icon: Mail, href: 'mailto:ajaychirme@gmail.com' },
-              { icon: Github, href: 'https://github.com/ajaychirme' },
-              { icon: Linkedin, href: 'https://linkedin.com/in/ajaychirme' }
+              { icon: Mail, href: 'mailto:galgalesaurabh18@gmail.com' },
+              { icon: Github, href: 'https://github.com/Saurabh-Galgale' },
+              { icon: Linkedin, href: 'https://www.linkedin.com/in/saurabh-galgale/' }
             ].map(({ icon: Icon, href }, i) => (
               <a
                 key={i}
                 href={href}
                 target={href.startsWith('http') ? '_blank' : undefined}
                 rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                className="p-3 rounded-full bg-gray-900 border border-gray-800 hover:border-cyan-500/50 hover:scale-110 transition-all duration-300 group"
+                className="p-3 rounded-full bg-gray-900 border border-gray-800 hover:border-cyan-500/50 text-gray-400 hover:text-cyan-400 transition-all hover:scale-110"
               >
-                <Icon className="text-gray-400 group-hover:text-cyan-400 transition-colors" size={20} />
+                <Icon size={20} />
               </a>
             ))}
           </div>
@@ -1119,7 +1232,7 @@ const Footer = () => {
         
         <div className="mt-8 pt-8 border-t border-gray-800 text-center">
           <p className="text-gray-500">
-            © 2024 Ajay Chirme. Crafted with <span className="text-red-500">❤️</span> and <span className="text-cyan-400">React</span>
+            © {new Date().getFullYear()} Saurabh Galgale. All rights reserved.
           </p>
         </div>
       </div>
@@ -1127,43 +1240,42 @@ const Footer = () => {
   );
 };
 
-export default function App() {
+// Main App Component
+const App = () => {
   const [loading, setLoading] = useState(true);
   const [theme, setTheme] = useTheme();
   const [activeSection, setActiveSection] = useState('home');
   
   useEffect(() => {
-    setTimeout(() => setLoading(false), 2500);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    setTimeout(() => setLoading(false), 2000);
   }, []);
   
   useEffect(() => {
-    const sections = ['home', 'about', 'skills', 'experience', 'projects', 'certificates', 'contact'];
-    
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
+    const handleScroll = () => {
+      const sections = ['home', 'about', 'skills', 'experience', 'projects', 'certificates', 'contact'];
+      const scrollPosition = window.scrollY + 100;
+      
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const offsetTop = element.offsetTop;
+          const offsetBottom = offsetTop + element.offsetHeight;
+          
+          if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
+            setActiveSection(section);
+            break;
           }
-        });
-      },
-      { threshold: 0.3 }
-    );
+        }
+      }
+    };
     
-    sections.forEach((id) => {
-      const element = document.getElementById(id);
-      if (element) observer.observe(element);
-    });
-    
-    return () => observer.disconnect();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
   
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="relative">
       <Loader loading={loading} />
-      
       {!loading && (
         <>
           <Navbar theme={theme} setTheme={setTheme} activeSection={activeSection} />
@@ -1177,44 +1289,8 @@ export default function App() {
           <Footer />
         </>
       )}
-      
-      <style>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-20px); }
-        }
-        
-        @keyframes gradient {
-          0%, 100% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-        }
-        
-        html {
-          scroll-behavior: smooth;
-        }
-        
-        * {
-          scrollbar-width: thin;
-          scrollbar-color: #06b6d4 #0f172a;
-        }
-        
-        *::-webkit-scrollbar {
-          width: 10px;
-        }
-        
-        *::-webkit-scrollbar-track {
-          background: #0f172a;
-        }
-        
-        *::-webkit-scrollbar-thumb {
-          background: linear-gradient(180deg, #06b6d4, #a855f7, #ec4899);
-          border-radius: 5px;
-        }
-        
-        *::-webkit-scrollbar-thumb:hover {
-          background: linear-gradient(180deg, #22d3ee, #c084fc, #f472b6);
-        }
-      `}</style>
     </div>
   );
-}
+};
+
+export default App;

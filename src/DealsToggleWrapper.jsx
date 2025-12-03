@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import StudentDealsSection from "./StudentDealsSection";
 import StudentDealsSection1 from "./StudentDealsSection1";
+import TotumWelcome from "./TotumWelcome";
 
 const DealsToggleWrapper = ({ isLoggedIn }) => {
   const [showFirst, setShowFirst] = useState(true);
@@ -12,7 +13,7 @@ const DealsToggleWrapper = ({ isLoggedIn }) => {
   return (
     <div onClick={handleToggle} className="cursor-pointer select-none">
       {showFirst ? (
-        <StudentDealsSection isLoggedIn={isLoggedIn} />
+<TotumWelcome/>
       ) : (
         <StudentDealsSection1 isLoggedIn={isLoggedIn} />
       )}

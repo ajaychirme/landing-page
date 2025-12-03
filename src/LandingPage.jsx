@@ -22,6 +22,7 @@ import VerificationBanner from "./VerificationBanner.jsx";
 // import StudentDealsSection1 from "./StudentDealsSection1.jsx";
 
 import "./landingPage.css";
+import TotumBenefits from "./TotumBenefits.jsx";
 
 function LandingPage() {
   const spanText = [
@@ -53,36 +54,35 @@ function LandingPage() {
   return (
     <div>
       {/* Ticker Bar */}
-  
-<div className="sticky top-0 z-50">
-  {/* Gradient banner */}
-  <div
-    className="flex items-center justify-center text-white px-4 py-2 cursor-pointer font-bold italic relative overflow-hidden"
-    style={{
-      background: "linear-gradient(to right, #6a1a8c, #db00ff, #ff007f)",
-      minHeight: "40px",
-    }}
-  >
-    <span
-      className="absolute transition-opacity duration-1000 text-center px-2"
-      style={{
-        opacity: fade ? 1 : 0,
-        fontSize: "clamp(12px, 3.5vw, 18px)",
-        lineHeight: "1.3",
-        maxWidth: "95%",
-      }}
-    >
-      {spanText[index]}
-    </span>
-  </div>
 
-  {/* Navbar */}
-  <TotumNavbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
-</div>
+      <div className="sticky top-0 z-50">
+        {/* Gradient banner */}
+        <div
+          className="flex items-center justify-center text-white px-4 py-2 cursor-pointer font-bold italic relative overflow-hidden"
+          style={{
+            background: "linear-gradient(to right, #6a1a8c, #db00ff, #ff007f)",
+            minHeight: "40px",
+          }}
+        >
+          <span
+            className="absolute transition-opacity duration-1000 text-center px-2"
+            style={{
+              opacity: fade ? 1 : 0,
+              fontSize: "clamp(12px, 3.5vw, 18px)",
+              lineHeight: "1.3",
+              maxWidth: "95%",
+            }}
+          >
+            {spanText[index]}
+          </span>
+        </div>
 
+        {/* Navbar */}
+        <TotumNavbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+      </div>
 
       <DealsToggleWrapper isLoggedIn={isLoggedIn} />
-
+            <TotumBenefits/>
       {!isLoggedIn && <WhoCanJoin />}
       {!isLoggedIn && <WhyTotum />}
       <SSHightlighs isLoggedIn={isLoggedIn} />
