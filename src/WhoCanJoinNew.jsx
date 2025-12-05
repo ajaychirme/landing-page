@@ -90,7 +90,7 @@ export default function TotumEligibility() {
               {/* Card Title */}
               <div
                 className={`${card.titleBg} ${card.titleBorder} px-4 py-2.5 mb-5 md:mb-6`}
-                style={{ transform: "rotate(-2deg)" }}
+                style={{ transform: "rotate(-1deg)" }}
               >
                 <h3
                   className={`${card.titleText} font-black text-sm md:text-base text-center tracking-wide join-totum`}

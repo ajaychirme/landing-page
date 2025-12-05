@@ -8,7 +8,7 @@ export default function TotumWelcome() {
         {/* Main Heading - Slightly Rotated */}
         <div
           className="inline-block mb-4 md:mb-5"
-          style={{ transform: "rotate(-2deg)" }}
+          style={{ transform: "rotate(-1deg)" }}
         >
           <div
             className="bg-black px-4 sm:px-6 md:px-10 lg:px-14 py-2 sm:py-3 lg:py-4"

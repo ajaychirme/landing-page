@@ -75,7 +75,7 @@ export default function TotumBenefitsHeader() {
                   w-full
                   text-center
                 `}
-                style={{ transform: "rotate(-2deg)" }}
+                style={{ transform: "rotate(-1deg)" }}
               >
                 <span
                   className={`font-black text-sm md:text-base tracking-wide ${tab.textColor} totum-benetits`}
