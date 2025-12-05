@@ -59,7 +59,7 @@ export default function TotumWelcome() {
     w-[200px] h-[55px]
     flex items-center justify-center
     whitespace-nowrap
-    bg-transparent text-white border-4 border-white font-bold rounded-lg
+    bg-transparent text-white border-4 border-white font-bold rounded-lg hover:shadow-2xl hover:scale-105 transition-all duration-300
   "
           >
             SIGN UP TODAY

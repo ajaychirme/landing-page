@@ -115,7 +115,7 @@ export default function WhyJoinTotum() {
 
         {/* CTA Button */}
         <div className="text-center">
-          <button className="bg-[#db1f89] text-white font-black text-base md:text-lg px-12 md:px-16 py-3 md:py-4 hover:bg-pink-600 transition-colors shadow-lg rounded-lg">
+          <button className="bg-[#db1f89] text-white font-black text-base md:text-lg px-12 md:px-16 py-3 md:py-4 hover:bg-pink-600 transition-colors shadow-lg rounded-lg hover:shadow-2xl hover:scale-105 transition-all duration-300">
             SIGN UP TODAY
           </button>
         </div>
