@@ -65,7 +65,7 @@ const TotumNavbar = ({ isLoggedIn, setIsLoggedIn }) => {
         .login-btn { background: transparent; border: none; color: #1a1a1a; font-weight: 700; cursor: pointer; padding: 10px 20px; transition: .3s; }
         .login-btn:hover { color: #c93f9e; }
 
-        .join-btn { background: linear-gradient(135deg,#c93f9e,#ff4d8f); color: white; border: none; padding: 12px 32px; font-weight: 700; border-radius: 8px; cursor: pointer; transition: .3s; text-transform: uppercase; letter-spacing:.5px; }
+        .join-btn { background: #db1f89; color: white; border: none; padding: 12px 32px; font-weight: 700; border-radius: 8px; cursor: pointer; transition: .3s; text-transform: uppercase; letter-spacing:.5px; }
         .join-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(201,63,158,0.3); }
 
         /* Desktop nav unchanged */

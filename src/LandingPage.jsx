@@ -4,9 +4,11 @@ import React, { useState, useEffect } from "react";
 
 // import FeaturedOffers from "./OffersSection.jsx";
 import TotumNavbar from "./TotumNavbar.jsx";
+import TotumEligibility from "./WhoCanJoinNew.jsx"; 
 import WhyTotum from "./WhyTotum.jsx";
 import SSHightlighs from "./SSHightlighs.jsx";
 import LatestNews from "./LatestNews.jsx";
+import WhyJoinTotum from "./WhyTotumNew.jsx";
 import DealsToggleWrapper from "./DealsToggleWrapper.jsx";
 // import PromoBanner1 from "./PromoBanner1.jsx";
 import WhoCanJoin from "./WhoCanJoin.jsx";
@@ -60,7 +62,7 @@ function LandingPage() {
         <div
           className="flex items-center justify-center text-white px-4 py-2 cursor-pointer font-bold italic relative overflow-hidden"
           style={{
-            background: "linear-gradient(to right, #6a1a8c, #db00ff, #ff007f)",
+            background: "#db1f89",
             minHeight: "40px",
           }}
         >
@@ -83,14 +85,14 @@ function LandingPage() {
 
       <DealsToggleWrapper isLoggedIn={isLoggedIn} />
             <TotumBenefits/>
-      {!isLoggedIn && <WhoCanJoin />}
-      {!isLoggedIn && <WhyTotum />}
-      <SSHightlighs isLoggedIn={isLoggedIn} />
-      <PlanSelector />
+     <TotumEligibility/>
+      <WhyJoinTotum/>
+      {/* <SSHightlighs isLoggedIn={isLoggedIn} /> */}
+      {/* <PlanSelector /> */}
       {isLoggedIn && <VerificationBanner />}
       {/* <VerificationBanner1/> */}
       <LatestNews />
-      {isLoggedIn && <WhyTotum isLoggedIn={isLoggedIn} />}
+      {/* {isLoggedIn && <WhyTotum isLoggedIn={isLoggedIn} />} */}
       <FAQSection isLoggedIn={isLoggedIn} />
     </div>
   );

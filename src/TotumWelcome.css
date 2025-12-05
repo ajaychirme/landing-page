@@ -1,0 +1,17 @@
+.bg-clr{
+background: #db1f89;
+}
+
+.futura-bold-oblique {
+  font-family: "Futura PT", sans-serif;
+  font-weight: 700;        /* Bold */
+  font-style: oblique;     /* Oblique / italic */
+  font-size: 50px;         /* Size 50 */
+}
+
+.futura-medium-23 {
+  font-family: "Futura PT", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 23px;
+}

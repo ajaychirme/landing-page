@@ -1,0 +1,7 @@
+.futura-bold-oblique-contenthigh {
+  font-family: "Futura PT", sans-serif;
+  font-weight: 700;        /* Bold */
+  font-style: oblique;     /* Oblique / italic */
+  font-size: 34px;         /* Size 50 */
+  word-spacing: 4px;
+}

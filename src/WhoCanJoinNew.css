@@ -1,0 +1,15 @@
+.futura-bold-oblique-whocanjoin {
+  font-family: "Futura PT", sans-serif;
+  font-weight: 700 !important;        /* Bold */
+  font-style: oblique;     /* Oblique / italic */
+  font-size: 34px;         /* Size 50 */
+  word-spacing: 4px;
+}
+
+. join-totum {
+    font-size: 20px !important;
+}
+
+.benefit-list{
+    font-size: 14px !important;
+}
