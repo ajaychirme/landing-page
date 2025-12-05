@@ -6,7 +6,7 @@ background: #db1f89;
   font-family: "Futura PT", sans-serif;
   font-weight: 700;
   font-style: oblique;
-  font-size: clamp(24px, 6vw, 50px);  /* 👈 Responsive heading */
+  font-size: clamp(24px, 6vw, 48px);  /* 👈 Responsive heading */
 }
 
 .futura-medium-23 {

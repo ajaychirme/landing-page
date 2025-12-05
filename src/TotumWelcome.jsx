@@ -23,7 +23,7 @@ export default function TotumWelcome() {
         text-white 
         text-xl sm:text-3xl md:text-4xl lg:text-5xl 
         font-black 
-        leading-tight sm:leading-snug md:leading-snug lg:leading-normal 
+        leading-tight sm:leading-snug md:leading-snug lg:leading-[1.2]
         tracking-wide 
         break-words 
         inline-flex 
