@@ -2,6 +2,19 @@
   font-family: "Futura PT", sans-serif;
   font-weight: 700;        /* Bold */
   font-style: oblique;     /* Oblique / italic */
-  font-size: 34px;         /* Size 50 */
+  font-size: 22px;         /* Size 50 */
   word-spacing: 4px;
+}
+
+@media (min-width: 640px) {
+  .futura-bold-oblique-contenthigh {
+    font-size: 28px;
+  }
+}
+
+/* Large screens / Desktop (≥1024px) */
+@media (min-width: 1024px) {
+  .futura-bold-oblique-contenthigh {
+    font-size: 34px; /* Desktop size remains unchanged */
+  }
 }

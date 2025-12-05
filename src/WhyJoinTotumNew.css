@@ -2,6 +2,19 @@
   font-family: "Futura PT", sans-serif;
   font-weight: 700 !important;        /* Bold */
   font-style: oblique;     /* Oblique / italic */
-  font-size: 34px;         /* Size 50 */
   word-spacing: 4px;
+  font-size: 22px;       
+}
+
+@media (min-width: 640px) {
+  .futura-bold-oblique-whyjointotum {
+    font-size: 28px;
+  }
+}
+
+/* Large screens / Desktop (≥1024px) */
+@media (min-width: 1024px) {
+  .futura-bold-oblique-whyjointotum {
+    font-size: 34px; /* Desktop size remains unchanged */
+  }
 }

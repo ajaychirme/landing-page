@@ -4,14 +4,14 @@ background: #db1f89;
 
 .futura-bold-oblique {
   font-family: "Futura PT", sans-serif;
-  font-weight: 700;        /* Bold */
-  font-style: oblique;     /* Oblique / italic */
-  font-size: 50px;         /* Size 50 */
+  font-weight: 700;
+  font-style: oblique;
+  font-size: clamp(24px, 6vw, 50px);  /* 👈 Responsive heading */
 }
 
 .futura-medium-23 {
   font-family: "Futura PT", sans-serif;
   font-weight: 500;
   font-style: normal;
-  font-size: 23px;
+  font-size: clamp(14px, 4vw, 23px); /* 👈 Responsive subheading */
 }
