@@ -146,7 +146,7 @@ export default function TotumEligibility() {
           <button
             className="
       w-[230px] h-[60px]
-      bg-transparent text-[#db1f89] font-black
+      bg-transparent text-[#db1f89] font-bold
       border-4 border-[#db1f89] rounded-lg
       hover:bg-pink-50  hover:shadow-2xl hover:scale-105 transition-all duration-300
       flex items-center justify-center 
@@ -161,7 +161,7 @@ export default function TotumEligibility() {
           <button
             className="
       w-[230px] h-[60px]
-      bg-[#db1f89] text-white font-black
+      bg-[#db1f89] text-white font-bold
       rounded-lg
       hover:bg-pink-600
       flex items-center justify-center
