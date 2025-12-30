@@ -59,7 +59,7 @@ const StudentDealsSection1 = ({ isLoggedIn }) => {
             </div>
 
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-4 text-yellow-300">
-              The UK's No.1 Discount Card for All
+              The UK's No.1 Discount Card for All2
             </h1>
             <p className="text-base sm:text-lg md:text-xl text-yellow-100 opacity-95 leading-relaxed px-4 sm:px-6 mt-3">
               Your new favourite student discount website with deals you won't

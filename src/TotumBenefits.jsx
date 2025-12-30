@@ -40,7 +40,7 @@ export default function TotumBenefitsHeader() {
   ];
 
   return (
-    <div className="bg-gray-100 py-8 md:py-12 px-4">
+    <div className="bg-gray-100 py-8 md:py-12 px-4 mt-24">
       <div className="max-w-6xl mx-auto">
         {/* Heading */}
         <div className="text-center mb-6 md:mb-8">

@@ -11,11 +11,14 @@ import App1 from "./App1.js";
 import StudentLogin from "./StudentLogin.jsx";
 import History1 from "./History1.jsx";
 import ProtectedRoute from "./ProtectedRoute.jsx";
+import StudentDiscounts from "./LoggedIn.jsx";
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<LandingPage />} />
+      <Route path="/login" element={<StudentDiscounts />} />
+
       <Route path="/saurabhgalgale" element={<Portfolio />} />
       <Route path="/saurabhgalgale1" element={<Portfolio1 />} />
       <Route path="/saurabhgalgale2" element={<Portfolio2 />} />

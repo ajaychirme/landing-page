@@ -1,0 +1,96 @@
+.sd-wrapper {
+  background: linear-gradient(180deg,#ec2d8f 0%,#d0187d 60%,#ffffff 100%);
+  padding-bottom: 80px;
+  font-family: 'Inter', sans-serif;
+}
+
+.sd-hero {
+  text-align: center;
+  padding: 70px 16px 40px;
+  color: #fff;
+}
+
+.sd-hero h1 {
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+.sd-hero p {
+  font-size: 15px;
+  opacity: 0.9;
+}
+
+.sd-content {
+  max-width: 1180px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.3fr repeat(3,1fr);
+  gap: 24px;
+  padding: 0 16px;
+}
+
+/* LEFT CARD */
+.sd-deals-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 22px;
+  box-shadow: 0 10px 25px rgba(0,0,0,.08);
+}
+
+.sd-deals-card h2 {
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+.sd-deal-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+}
+
+.sd-deal-row strong {
+  font-size: 14px;
+  display: block;
+}
+
+.sd-deal-row span {
+  font-size: 12px;
+  color: #777;
+}
+
+.sd-logo {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: #eee;
+}
+
+/* PROMO CARDS */
+.sd-promo-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,.08);
+  overflow: hidden;
+  text-align: center;
+}
+
+.sd-promo-card img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+}
+
+.sd-promo-card h3 {
+  font-size: 16px;
+  margin: 14px 0 6px;
+}
+
+.sd-promo-card span {
+  color: #8c3bb8;
+  font-size: 14px;
+  padding-bottom: 16px;
+  display: block;
+}

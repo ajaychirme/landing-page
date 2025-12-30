@@ -84,16 +84,12 @@ function LandingPage() {
       </div>
 
       <DealsToggleWrapper isLoggedIn={isLoggedIn} />
-            <TotumBenefits/>
+            {/* <TotumBenefits/>
      <TotumEligibility/>
       <WhyJoinTotum/>
-      {/* <SSHightlighs isLoggedIn={isLoggedIn} /> */}
-      {/* <PlanSelector /> */}
       {isLoggedIn && <VerificationBanner />}
-      {/* <VerificationBanner1/> */}
       <LatestNews />
-      {/* {isLoggedIn && <WhyTotum isLoggedIn={isLoggedIn} />} */}
-      <FAQSection isLoggedIn={isLoggedIn} />
+      <FAQSection isLoggedIn={isLoggedIn} /> */}
     </div>
   );
 }
