@@ -49,7 +49,7 @@ const StudentDealsSection2 = ({isLoggedIn}) => {
     relative overflow-hidden
   "
 style={{
-  height: "25rem",
+  height: "22rem",
   backgroundImage: "url('/banner.png')",
   backgroundSize: "cover",
   backgroundPosition: "center",
@@ -89,7 +89,7 @@ style={{
 {isLoggedIn && <section
   className="text-white px-4 sm:px-6 md:px-8 relative overflow-hidden"
         style={{
-          height: "25rem",
+          height: "22rem",
   backgroundImage: "url('/banner.png')",
   backgroundSize: "cover",
   backgroundPosition: "center",
@@ -127,11 +127,11 @@ style={{
 
       {/* Cards Section - Positioned absolutely to maintain same position */}
       <div className="absolute top-72 left-0 right-0 px-4 sm:px-6 md:px-8 pb-12 z-20">
-     { isLoggedIn && (<div className="flex flex-col lg:flex-row justify-center items-stretch gap-4 sm:gap-6 max-w-7xl mx-auto" style={{marginTop: '-4.5rem'}}>
+     { isLoggedIn && (<div className="flex flex-col lg:flex-row justify-center items-stretch gap-4 sm:gap-6 max-w-7xl mx-auto" style={{marginTop: '-4.5rem', height: "19rem"}}>
           {/* Student Deals of the Day */}
           <div
             className="bg-white text-gray-900 p-4 sm:p-6 shadow-xl flex flex-col w-full lg:w-auto"
-            style={{ minHeight:"20rem", flexBasis: "40%", borderRadius: "10px" }}
+            style={{ flexBasis: "40%", borderRadius: "10px" }}
           >
             <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Student deals of the day</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 flex-grow">
@@ -162,7 +162,7 @@ style={{
 
             <div
             className="bg-white shadow-xl overflow-hidden flex flex-col w-full lg:w-auto"
-            style={{ minHeight:'20rem', flexBasis: "20%", borderRadius: "10px" }}
+            style={{ minHeight:'19rem', flexBasis: "20%", borderRadius: "10px" }}
           >
             <div className="relative h-40 sm:h-56 overflow-hidden">
               <img
@@ -184,7 +184,7 @@ style={{
           {/* Card 2 */}
           <div
             className="bg-white shadow-xl overflow-hidden flex flex-col w-full lg:w-auto"
-            style={{minHeight: "20rem",flexBasis: "20%", borderRadius: "10px" }}
+            style={{minHeight: "19rem",flexBasis: "20%", borderRadius: "10px" }}
           >
             <div className="relative h-40 sm:h-56 bg-gradient-to-br from-orange-500 to-purple-600 overflow-hidden">
               <img
