@@ -51,6 +51,7 @@ const StudentDealsSection = ({isLoggedIn}) => {
     relative overflow-hidden
   "
 style={{
+  height: "25rem",
   backgroundImage: "url('/banner.png')",
   backgroundSize: "cover",
   backgroundPosition: "center",
@@ -90,7 +91,7 @@ style={{
 {isLoggedIn && <section
   className="text-white px-8 relative overflow-hidden"
         style={{
-          height: "24rem",
+          height: "25rem",
   backgroundImage: "url('/banner.png')",
   backgroundSize: "cover",
   backgroundPosition: "center",
@@ -105,7 +106,7 @@ style={{
   <div className={`text-center max-w-4xl mx-auto relative z-10 py-4 sm:py-6 ${
     isLoggedIn ? "pt-6 sm:pt-6" : ""
   }`}>
-    <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight mb-3 sm:mb-4 px-2">
+    <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight mb-3 sm:mb-4 px-2" style={{fontSize: "2.5rem"}}>
       The UK’s No. 1 Discount Card for Students, Professionals & Apprentices
     </h1>
 

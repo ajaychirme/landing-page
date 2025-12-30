@@ -49,6 +49,7 @@ const StudentDealsSection2 = ({isLoggedIn}) => {
     relative overflow-hidden
   "
 style={{
+  height: "25rem",
   backgroundImage: "url('/banner.png')",
   backgroundSize: "cover",
   backgroundPosition: "center",
@@ -88,7 +89,7 @@ style={{
 {isLoggedIn && <section
   className="text-white px-4 sm:px-6 md:px-8 relative overflow-hidden"
         style={{
-          height: "24rem",
+          height: "25rem",
   backgroundImage: "url('/banner.png')",
   backgroundSize: "cover",
   backgroundPosition: "center",
@@ -103,7 +104,7 @@ style={{
   <div className={`text-center max-w-4xl mx-auto relative z-10 py-4 sm:py-6 ${
     isLoggedIn ? "pt-6 sm:pt-6" : ""
   }`}>
-    <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight mb-3 sm:mb-4 px-2">
+    <h1 className="text-2xl sm:text-3xl md:text-4xl  font-extrabold leading-tight mb-3 sm:mb-4 px-2" style={{fontSize: "2.5rem"}}>
       The UK's No. 1 Discount Card for Students, Professionals & Apprentices
     </h1>
 
@@ -126,7 +127,7 @@ style={{
 
       {/* Cards Section - Positioned absolutely to maintain same position */}
       <div className="absolute top-72 left-0 right-0 px-4 sm:px-6 md:px-8 pb-12 z-20">
-     { isLoggedIn && (<div className="flex flex-col lg:flex-row justify-center items-stretch gap-4 sm:gap-6 max-w-7xl mx-auto" style={{marginTop: '-3.5rem'}}>
+     { isLoggedIn && (<div className="flex flex-col lg:flex-row justify-center items-stretch gap-4 sm:gap-6 max-w-7xl mx-auto" style={{marginTop: '-4.5rem'}}>
           {/* Student Deals of the Day */}
           <div
             className="bg-white text-gray-900 p-4 sm:p-6 shadow-xl flex flex-col w-full lg:w-auto"
