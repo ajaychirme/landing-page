@@ -49,7 +49,7 @@ const StudentDealsSection2 = ({isLoggedIn}) => {
     relative overflow-hidden
   "
 style={{
-  height: "22rem",
+  height: "28.5rem",
   backgroundImage: "url('/banner.png')",
   backgroundSize: "cover",
   backgroundPosition: "center",
@@ -89,7 +89,7 @@ style={{
 {isLoggedIn && <section
   className="text-white px-4 sm:px-6 md:px-8 relative overflow-hidden"
         style={{
-          height: "22rem",
+          height: "28.5rem",
   backgroundImage: "url('/banner.png')",
   backgroundSize: "cover",
   backgroundPosition: "center",
@@ -133,7 +133,7 @@ style={{
             className="bg-white text-gray-900 p-4 sm:p-6 shadow-xl flex flex-col w-full lg:w-auto"
             style={{ flexBasis: "40%", borderRadius: "10px" }}
           >
-            <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Student deals of the day</h2>
+            {/* <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Student deals of the day</h2> */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 flex-grow">
               {deals && deals.map((deal, index) => (
                 <div
