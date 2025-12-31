@@ -121,7 +121,7 @@ style={{
 {isLoggedIn && <section
   className="text-white px-8 relative overflow-hidden"
         style={{
-          height: "32rem",
+          height: "30rem",
            backgroundColor:
   selectedType === "student"
     ? "#db1f89"
@@ -154,7 +154,7 @@ style={{
     ? "#000"
     : "#7d2369",}}
   >
-    <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight mb-3 sm:mb-4 px-2" style={{fontSize: "2.5rem"}}>
+    <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight mb-3 sm:mb-4 px-2" style={{fontSize: "2rem"}}>
       The UK’s No. 1 Discount Card for Students, Professionals & Apprentices
     </h1>
 
@@ -176,7 +176,7 @@ style={{
 
       {/* Cards Section - Positioned absolutely to maintain same position */}
       <div className="absolute top-72 left-0 right-0 px-8 pb-12 z-20">
-     { isLoggedIn && (<div className="flex flex-col lg:flex-row justify-center items-stretch gap-6 max-w-7xl mx-auto" style={{marginTop: '-5rem'}}>
+     { isLoggedIn && (<div className="flex flex-col lg:flex-row justify-center items-stretch gap-6 max-w-7xl mx-auto" style={{maxHeight:"21rem",marginTop: '-5rem'}}>
           {/* Student Deals of the Day */}
           <div
             className="bg-white text-gray-900 p-4 shadow-xl flex flex-col"
