@@ -3,23 +3,23 @@ import React, { useEffect } from "react";
 const StudentDealsSection2 = ({isLoggedIn}) => {
   const deals = [
     {
-      title: "25% Student Discount",
+      title: "£10 FOR 80GB - UNLIMITED SOCIAL MEDIA + 1ST MONTH FREE",
       subtitle: "adidas",
       logo: "https://upload.wikimedia.org/wikipedia/commons/2/20/Adidas_Logo.svg",
     },
     {
-      title: "20% Student Discount",
+      title: "FIND YOUR PERFECT SOMEWHERE WITH 10% OFF HOTELS AT HOTELS.COM",
       subtitle: "Nike",
       logo: "https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg",
     },
     ,
     {
-      title: "20% Student Discount",
+      title: "SAVE ON MAC AND IPAD FOR UNI",
       subtitle: "Nike",
       logo: "https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg",
     },
     {
-      title: "Flat 15% Off on Fashion",
+      title: "SAVE UP TO £400 ON YOUR NEXT EASYJET HOLIDAY (MINIMUM SPEND APPLIES)",
       subtitle: "ZARA",
       logo: "https://upload.wikimedia.org/wikipedia/commons/f/fd/Zara_Logo.svg",
     },
@@ -129,7 +129,7 @@ style={{
 
       {/* Cards Section - Positioned absolutely to maintain same position */}
       <div className="absolute top-72 left-0 right-0 px-4 sm:px-6 md:px-8 pb-12 z-20">
-     { isLoggedIn && (<div className="flex flex-col lg:flex-row justify-center items-stretch gap-4 sm:gap-6 max-w-7xl mx-auto" style={{marginTop: '-4.5rem', height: "19rem"}}>
+     { isLoggedIn && (<div className="flex flex-col lg:flex-row justify-center items-stretch gap-4 sm:gap-6 max-w-7xl mx-auto" style={{marginTop: '-4.5rem', minHeight: "19rem"}}>
           {/* Student Deals of the Day */}
           <div
             className="bg-white text-gray-900 p-4 sm:p-6 shadow-xl flex flex-col w-full lg:w-auto"
@@ -155,7 +155,7 @@ style={{
                   </div>
                   <div className="flex-grow min-w-0">
                     <p className="font-bold text-xs sm:text-sm leading-tight mb-1">{deal.title}</p>
-                    <p className="text-xs text-gray-500">{deal.subtitle}</p>
+                    {/* <p className="text-xs text-gray-500">{deal.subtitle}</p> */}
                   </div>
                 </div>
               ))}
