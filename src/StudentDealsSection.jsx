@@ -176,7 +176,7 @@ style={{
 
       {/* Cards Section - Positioned absolutely to maintain same position */}
       <div className="absolute top-72 left-0 right-0 px-8 pb-12 z-20">
-     { isLoggedIn && (<div className="flex flex-col lg:flex-row justify-center items-stretch gap-6 max-w-7xl mx-auto" style={{marginTop: '-4.5rem'}}>
+     { isLoggedIn && (<div className="flex flex-col lg:flex-row justify-center items-stretch gap-6 max-w-7xl mx-auto" style={{marginTop: '-5rem'}}>
           {/* Student Deals of the Day */}
           <div
             className="bg-white text-gray-900 p-4 shadow-xl flex flex-col"
