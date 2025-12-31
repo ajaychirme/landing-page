@@ -38,7 +38,9 @@ const StudentDealsSection2 = ({isLoggedIn}) => {
   useEffect(()=>{console.log('hii',isLoggedIn)},[isLoggedIn])
   
   return (
-    <div className="relative" style={{marginTop: "20rem"}}>
+    <div className="relative" 
+    // style={{marginTop: "20rem"}}
+    >
       {/* Extended Gradient Background Section */}
       {!isLoggedIn && <section
   className="

@@ -12,13 +12,14 @@ const DealsToggleWrapper = ({ isLoggedIn }) => {
 
   return (
     <div onClick={handleToggle} className="cursor-pointer select-none">
-      {false ? (
+
+      <StudentDealsSection2 isLoggedIn={true}/>
+            {false ? (
 <TotumWelcome/>
       ) : (
         <StudentDealsSection isLoggedIn={true} />
       )}
 <hr />
-      <StudentDealsSection2 isLoggedIn={true}/>
     </div>
   );
 };

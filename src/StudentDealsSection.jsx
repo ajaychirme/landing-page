@@ -52,7 +52,9 @@ const StudentDealsSection = ({isLoggedIn}) => {
   return (
 
 
-    <div className="relative" onClick={handleClick}>
+    <div className="relative"
+    style={{marginTop:"20rem"}}
+    onClick={handleClick}>
       {/* Extended Gradient Background Section */}
       {!isLoggedIn && <section
   className="
