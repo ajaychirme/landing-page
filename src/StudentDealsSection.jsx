@@ -103,7 +103,7 @@ style={{
       The UK’s No. 1 Discount Card for Students, Professionals & Apprentices updated
     </h1>
 
-    <p className="text-sm sm:text-base md:text-lg text-white opacity-95 leading-relaxed px-4 sm:px-6 mt-3 sm:mt-4 md:mt-6">
+    <p className="text-sm sm:text-base md:text-lg text-white opacity-95 leading-relaxed px-4 sm:px-6 mt-3 sm:mt-4" style={{marginTop:"1rem"}}>
       Exclusive student discounts, professional offers and apprentice deals. Plus free cashback, ID and international offers from +500 brands. All in one app.
     </p>
 
@@ -121,7 +121,7 @@ style={{
 {isLoggedIn && <section
   className="text-white px-8 relative overflow-hidden"
         style={{
-          height: "27rem",
+          height: "28rem",
            backgroundColor:
   selectedType === "student"
     ? "#db1f89"
@@ -158,7 +158,7 @@ style={{
       The UK’s No. 1 Discount Card for Students, Professionals & Apprentices
     </h1>
 
-    <p className="text-sm sm:text-base md:text-lg text-white opacity-95 leading-relaxed px-4 sm:px-6 mt-3 sm:mt-4 md:mt-6">
+    <p className="text-sm sm:text-base md:text-lg text-white opacity-95 leading-relaxed px-4 sm:px-6 mt-3 sm:mt-4" style={{marginTop:"1rem"}}>
       Exclusive student discounts, professional offers and apprentice deals. Plus free cashback, ID and international offers from +500 brands. All in one app1.
     </p>
 
@@ -176,7 +176,7 @@ style={{
 
       {/* Cards Section - Positioned absolutely to maintain same position */}
       <div className="absolute top-72 left-0 right-0 px-8 pb-12 z-20">
-     { isLoggedIn && (<div className="flex flex-col lg:flex-row justify-center items-stretch gap-6 max-w-7xl mx-auto" style={{maxHeight:"20rem",marginTop: '-5rem'}}>
+     { isLoggedIn && (<div className="flex flex-col lg:flex-row justify-center items-stretch gap-6 max-w-7xl mx-auto" style={{maxHeight:"20rem",marginTop: '-6rem'}}>
           {/* Student Deals of the Day */}
           <div
             className="bg-white text-gray-900 p-3 shadow-xl flex flex-col"
