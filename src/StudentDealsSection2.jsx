@@ -44,7 +44,7 @@ const StudentDealsSection2 = ({ isLoggedIn }) => {
         }}
       >
         <div className="text-center max-w-4xl mx-auto relative z-10">
-        <h1 className="text-xl sm:text-2xl md:text-[2.5rem] lg:text-[2.5rem] font-extrabold leading-normal mb-[1.5rem]">
+        <h1 className="text-xl sm:text-2xl md:text-[2.5rem] lg:text-[2.5rem] font-extrabold !leading-normal mb-[1.5rem]">
             The UK's No. 1 Discount Card for Students, Professionals &
             Apprentices
           </h1>
@@ -60,7 +60,7 @@ const StudentDealsSection2 = ({ isLoggedIn }) => {
       <div className="relative md:absolute md:top-72 left-0 right-0 px-3 sm:px-6 md:px-8 pb-10 md:pb-12 z-20">
         {isLoggedIn && (
           <div
-            className="flex flex-col lg:flex-row justify-center items-stretch gap-4 max-w-7xl mx-auto mt-2 md:-mt-[3.3rem]"
+            className="flex flex-col lg:flex-row justify-center items-stretch gap-4 max-w-7xl mx-auto mt-2 md:-mt-[2rem]"
             style={{ minHeight: "16.5rem" }}
           >
             {/* Student Deals of the Day */}
