@@ -35,7 +35,7 @@ const StudentDealsSection2 = ({ isLoggedIn }) => {
   pb-0
   px-4 sm:px-6 md:px-8
   relative overflow-hidden
-  min-h-[17rem] max-[767px]:min-h-[12rem] md:h-[27rem]
+  min-h-[17rem] max-[767px]:min-h-[12rem] md:min-h-[27rem]
 "
         style={{
           backgroundImage: "url('/banner.png')",
@@ -44,7 +44,7 @@ const StudentDealsSection2 = ({ isLoggedIn }) => {
         }}
       >
         <div className="text-center max-w-4xl mx-auto relative z-10">
-        <h1 className="text-xl sm:text-2xl md:text-[2.5rem] lg:text-[2.5rem] font-extrabold leading-tight mb-[1.5rem]">
+        <h1 className="text-xl sm:text-2xl md:text-[2.5rem] lg:text-5xl font-extrabold leading-normal mb-[1.5rem]">
             The UK's No. 1 Discount Card for Students, Professionals &
             Apprentices
           </h1>
