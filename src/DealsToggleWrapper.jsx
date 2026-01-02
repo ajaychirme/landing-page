@@ -16,11 +16,11 @@ const DealsToggleWrapper = ({ isLoggedIn }) => {
       {/* <StudentDealsSection3/> */}
 
       <StudentDealsSection2 isLoggedIn={true}/>
-            {false ? (
+            {/* {false ? (
 <TotumWelcome/>
       ) : (
         <StudentDealsSection isLoggedIn={true} />
-      )}
+      )} */}
 <hr />
     </div>
   );
