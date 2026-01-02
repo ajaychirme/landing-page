@@ -35,7 +35,7 @@ const StudentDealsSection2 = ({ isLoggedIn }) => {
   pb-0
   px-4 sm:px-6 md:px-8
   relative overflow-hidden
-  min-h-[17rem] max-[767px]:min-h-[12rem] md:min-h-[27rem]
+  min-h-[17rem] max-[767px]:min-h-[12rem] md:min-h-[27.5rem]
 "
         style={{
           backgroundImage: "url('/banner.png')",
