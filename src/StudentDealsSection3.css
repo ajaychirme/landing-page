@@ -1,0 +1,98 @@
+.student-wrapper { position: relative; font-family: system-ui, sans-serif; }
+
+/* HERO */
+.hero-banner {
+  height: 28.5rem;
+  background: url("../public/banner.png") center/cover no-repeat;
+  padding: 3rem 1rem;
+  color: #fff;
+  position: relative;
+}
+
+.hero-banner.logged-in { height: 26rem; }
+
+.blur-circle {
+  position: absolute;
+  border-radius: 50%;
+  background: #fff;
+  opacity: .1;
+  filter: blur(50px);
+}
+.c1 { width:130px;height:130px;top:40px;left:80px; }
+.c2 { width:100px;height:100px;top:160px;right:120px; }
+.c3 { width:160px;height:160px;bottom:80px;left:25%; }
+
+.hero-content { max-width: 850px; margin: auto; text-align: center; }
+.hero-content h1 { font-size: clamp(2rem,4vw,3rem); font-weight: 800; }
+.hero-content p { margin-top: 1rem; font-size: 1rem; opacity: .95; }
+
+.hero-buttons { margin-top: 2rem; display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+.btn-white { background:#fff;color:#6b21a8;padding:.7rem 1.8rem;border-radius:999px;font-weight:700; }
+.btn-pink { background:#db1f89;color:#fff;padding:.7rem 1.8rem;border-radius:999px;font-weight:700; }
+
+/* CARDS */
+.cards-root {
+  position:absolute;
+  top:18rem;
+  width:100%;
+  padding:0 1rem;
+}
+
+.cards-container {
+  max-width:1280px;
+  margin:auto;
+  display:flex;
+  gap:1rem;
+  flex-wrap:wrap;
+}
+
+.deals-card {
+  flex:2;
+  background:#fff;
+  padding:1rem;
+  border-radius:9px;
+  box-shadow:0 10px 15px -3px rgb(0 0 0 /.1),0 4px 6px -4px rgb(0 0 0 /.1);
+}
+
+.deals-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:.75rem; }
+
+.deal-row {
+  display:flex;
+  align-items:center;
+  gap:.75rem;
+  padding:.75rem;
+  border:1px solid #e5e7eb;
+  border-radius:9px;
+  cursor:pointer;
+}
+.deal-logo {
+  width:36px;height:36px;background:#f9fafb;border-radius:6px;
+  display:flex;align-items:center;justify-content:center;
+}
+.deal-logo img { width:28px;height:28px;object-fit:contain; }
+.deal-row span { font-size:12px;font-weight:700;line-height:1rem; }
+
+.image-card {
+  flex:1;
+  background:#fff;
+  border-radius:9px;
+  box-shadow:0 10px 15px -3px rgb(0 0 0 /.1),0 4px 6px -4px rgb(0 0 0 /.1);
+  overflow:hidden;
+  min-height:16.5rem;
+  display:flex;
+  flex-direction:column;
+}
+.image-card img { width:100%; height:144px; object-fit:cover; }
+
+.card-footer {
+  padding:1rem;
+  display:flex;
+  flex-direction:column;
+}
+.card-footer h3 { font-size:14px;font-weight:700;margin-bottom:.25rem; }
+.card-footer a { color:#ec4899;font-weight:600;font-size:14px; }
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .cards-container{ flex-direction:column; }
+}

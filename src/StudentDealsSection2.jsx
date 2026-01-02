@@ -91,7 +91,7 @@ style={{
 {isLoggedIn && <section
   className="text-white px-4 sm:px-6 md:px-8 relative overflow-hidden"
         style={{
-          height: "28.5rem",
+          height: "26rem",
   backgroundImage: "url('/banner.png')",
   backgroundSize: "cover",
   backgroundPosition: "center",
@@ -129,105 +129,96 @@ style={{
 
       {/* Cards Section - Positioned absolutely to maintain same position */}
       <div className="absolute top-72 left-0 right-0 px-4 sm:px-6 md:px-8 pb-12 z-20">
-     { isLoggedIn && (<div className="flex flex-col lg:flex-row justify-center items-stretch gap-4 sm:gap-6 max-w-7xl mx-auto" style={{marginTop: '-4.5rem', minHeight: "19rem"}}>
-          {/* Student Deals of the Day */}
-          <div
-            className="bg-white text-gray-900 p-4 sm:p-6 shadow-xl flex flex-col w-full lg:w-auto"
-            style={{ flexBasis: "40%", borderRadius: "10px" }}
-          >
-            {/* <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Student deals of the day</h2> */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 flex-grow">
-              {deals && deals.map((deal, index) => (
-                <div
-                  key={index}
-                  className="flex items-center gap-3 border border-gray-200  p-3 sm:p-4 hover:shadow-md hover:border-pink-300 transition-all cursor-pointer"
-                  style={{borderRadius: "10px"}}
-                >
-                  <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-gray-50 rounded-lg">
-                    <img
-                      src={deal.logo}
-                      alt={deal.subtitle}
-                      className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
-                      onError={(e) => {
-                        e.target.src = `https://via.placeholder.com/40x40/c93f9e/ffffff?text=${deal.subtitle.charAt(0)}`;
-                      }}
-                    />
-                  </div>
-                  <div className="flex-grow min-w-0">
-                    <p className="font-bold text-xs sm:text-sm leading-tight mb-1">{deal.title}</p>
-                    {/* <p className="text-xs text-gray-500">{deal.subtitle}</p> */}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
+{isLoggedIn && (
+  <div
+    className="flex flex-col lg:flex-row justify-center items-stretch gap-4 max-w-7xl mx-auto"
+    style={{ marginTop: "-4.3rem", minHeight: "16.5rem" }}
+  >
+    {/* Student Deals of the Day */}
+    <div
+      className="bg-white text-gray-900 p-4 shadow-lg flex flex-col w-full lg:w-auto"
+      style={{ flexBasis: "40%", borderRadius: "9px" }}
+    >
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 flex-grow">
+        {deals &&
+          deals.map((deal, index) => (
             <div
-            className="bg-white shadow-xl overflow-hidden flex flex-col w-full lg:w-auto"
-            style={{ minHeight:'19rem', flexBasis: "20%", borderRadius: "10px" }}
-          >
-            <div className="relative h-40 sm:h-56 overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=600&q=80"
-                alt="Food & drink deals"
-                className="w-full h-full object-cover"
-              />
+              key={index}
+              className="flex items-center gap-3 border border-gray-200 p-3 hover:shadow-sm hover:border-pink-300 transition-all cursor-pointer"
+              style={{ borderRadius: "9px" }}
+            >
+              <div className="flex-shrink-0 w-9 h-9 flex items-center justify-center bg-gray-50 rounded-md">
+                <img
+                  src={deal.logo}
+                  alt={deal.subtitle}
+                  className="w-7 h-7 object-contain"
+                  onError={(e) => {
+                    e.target.src = `https://via.placeholder.com/36x36/c93f9e/ffffff?text=${deal.subtitle.charAt(0)}`;
+                  }}
+                />
+              </div>
+              <div className="flex-grow min-w-0">
+                <p className="font-bold text-xs leading-tight">
+                  {deal.title}
+                </p>
+              </div>
             </div>
-            <div className="p-4 sm:p-6 flex-grow flex flex-col">
-              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 flex-grow">
-                Save more on food & drink
-              </h3>
-              <a href="/discount-more" className="text-pink-600 font-semibold hover:text-pink-700 transition text-sm sm:text-base">
-                Discover More →
-              </a>
-            </div>
-          </div>
+          ))}
+      </div>
+    </div>
 
-          {/* Card 2 */}
-          <div
-            className="bg-white shadow-xl overflow-hidden flex flex-col w-full lg:w-auto"
-            style={{minHeight: "19rem",flexBasis: "20%", borderRadius: "10px" }}
-          >
-            <div className="relative h-40 sm:h-56 bg-gradient-to-br from-orange-500 to-purple-600 overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1509557965875-b88c97052f0e?auto=format&fit=crop&w=600&q=80"
-                alt="Halloween deals"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="p-4 sm:p-6 flex-grow flex flex-col">
-              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 flex-grow">
-                No tricks, just Halloween deals
-              </h3>
-              <a href="/discount-more" className="text-pink-600 font-semibold hover:text-pink-700 transition text-sm sm:text-base">
-                Discover More →
-              </a>
-            </div>
-          </div>
+    {/* Card 1 */}
+    <div
+      className="bg-white shadow-lg overflow-hidden flex flex-col w-full lg:w-auto"
+      style={{ minHeight: "16.5rem", flexBasis: "20%", borderRadius: "9px" }}
+    >
+      <div className="relative h-36 overflow-hidden">
+        <img
+          src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=600&q=80"
+          alt="Food & drink deals"
+          className="w-full h-full object-cover"
+        />
+      </div>
+      <div className="p-4 flex-grow flex flex-col">
+        <h3 className="text-sm font-bold text-gray-900 mb-1 flex-grow">
+          Save more on food & drink
+        </h3>
+        <a
+          href="/discount-more"
+          className="text-pink-600 font-semibold hover:text-pink-700 transition text-sm"
+        >
+          Discover More →
+        </a>
+      </div>
+    </div>
 
-          {/* Card 3 */}
-          {/* <div
-            className="bg-white shadow-xl overflow-hidden flex flex-col w-full lg:w-auto"
-            style={{ minHeight:'20rem', flexBasis: "20%", borderRadius: "10px" }}
-          >
-            <div className="relative h-40 sm:h-56 overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=600&q=80"
-                alt="Food & drink deals"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="p-4 sm:p-6 flex-grow flex flex-col">
-              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 flex-grow">
-                Save more on food & drink
-              </h3>
-              <a href="/discount-more" className="text-pink-600 font-semibold hover:text-pink-700 transition text-sm sm:text-base">
-                Discover More →
-              </a>
-            </div>
-          </div> */}
+    {/* Card 2 */}
+    <div
+      className="bg-white shadow-lg overflow-hidden flex flex-col w-full lg:w-auto"
+      style={{ minHeight: "16.5rem", flexBasis: "20%", borderRadius: "9px" }}
+    >
+      <div className="relative h-36 overflow-hidden">
+        <img
+          src="https://images.unsplash.com/photo-1509557965875-b88c97052f0e?auto=format&fit=crop&w=600&q=80"
+          alt="Halloween deals"
+          className="w-full h-full object-cover"
+        />
+      </div>
+      <div className="p-4 flex-grow flex flex-col">
+        <h3 className="text-sm font-bold text-gray-900 mb-1 flex-grow">
+          No tricks, just Halloween deals
+        </h3>
+        <a
+          href="/discount-more"
+          className="text-pink-600 font-semibold hover:text-pink-700 transition text-sm"
+        >
+          Discover More →
+        </a>
+      </div>
+    </div>
+  </div>
+)}
 
-        </div>)}
       </div>
     </div>
   );
